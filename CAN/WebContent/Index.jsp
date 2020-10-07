@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h1>Hello World</h1>
+	<input type="button" value="load" onclick="window.location='test.jsp'" >
 </body>
 </html>
