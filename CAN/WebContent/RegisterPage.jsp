@@ -36,7 +36,7 @@
 		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 		</div>
 		<select class="custom-select" style="max-width: 120px;">
-		    <option selected="">+971</option>
+		    <option selected="0">+971</option>
 		    <option value="1">+972</option>
 		    <option value="2">+198</option>
 		    <option value="3">+701</option>
