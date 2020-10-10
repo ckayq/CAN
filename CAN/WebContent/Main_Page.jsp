@@ -5,7 +5,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="nav_style.css">
+<link rel="stylesheet" href="main_style.css">
+
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
