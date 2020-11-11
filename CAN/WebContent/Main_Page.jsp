@@ -21,7 +21,7 @@
 					<li><a href="Main_Page.jsp">Home</a></li>
 					<li><a href="Profile_Page.jsp">Profile</a></li>
 					<li><a href="#">Store</a></li>
-					<li><a href="#">Logout</a></li>
+					<li><a href="LoginPage.jsp">Logout</a></li>
 				</ul>
 			</nav>
 		</div>
