@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import registrationDAO.RegistrationDAO;
 import user.User;
+import user.UserDAOImpl;
 
 @WebServlet("/Registration")
 public class Registration extends HttpServlet {
@@ -17,10 +17,6 @@ public class Registration extends HttpServlet {
     public Registration() {
     	
     }
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String firstName = request.getParameter("firstName");
@@ -31,11 +27,11 @@ public class Registration extends HttpServlet {
 		
 		User user = new User(firstName, lastName, email, phoneNumber, password);
 		
-		RegistrationDAO regDao = new RegistrationDAO();
+		UserDAOImpl userDAO = new UserDAOImpl();
 		
-		String result = regDao.createUser(user);
+		int result = userDAO.insertUser(user);
 		
-		response.getWriter().print(result);
+		response.getWriter().println(result);
 	}
 
 }
