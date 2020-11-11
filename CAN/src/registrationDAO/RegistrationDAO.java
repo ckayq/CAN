@@ -17,7 +17,6 @@ public class RegistrationDAO {
 		try {
 			Class.forName(dbDriver);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -28,7 +27,6 @@ public class RegistrationDAO {
 		try {
 			conn = DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -55,7 +53,6 @@ public class RegistrationDAO {
 			
 			preparedStmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
 			result = "Fail";
