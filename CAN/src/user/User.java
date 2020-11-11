@@ -1,13 +1,17 @@
 package user;
 
 public class User {
-
 	private String firstName;
-	private String lastName; 
-	private String email; 
+	private String lastName;
+	private String email;
 	private String phoneNumber;
 	private String password;
 	
+
+	public User() {
+		super();
+	}
+
 	public User(String newFirstName, String newLastName, String newEmail, String newPhoneNumber, String newPassword) {
 		super();
 		
@@ -56,5 +60,5 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}	
+	}
 }
