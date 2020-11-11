@@ -20,10 +20,6 @@ public class Login extends HttpServlet {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserDAO userDAO = new UserDAOImpl();
 		
@@ -43,5 +39,4 @@ public class Login extends HttpServlet {
 			request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 		}
 	}
-
 }
