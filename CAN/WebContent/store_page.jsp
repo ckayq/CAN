@@ -21,12 +21,12 @@
 			<label for="check" class="checkbtn">
 				<i class="fas fa-bars"></i>
 			</label>
-			<label class="logo">WWW</label>
+			<label class="logo"><a href="Main_Page.jsp">WWW</a></label>
 			<ul>
 					<li><a href="Main_Page.jsp">Home</a></li>
 					<li><a href="Profile_Page.jsp">Profile</a></li>
-					<li><a href="#">Store</a></li>
-					<li><a href="#">Logout</a></li>
+					<li><a href="store_page.jsp">Store</a></li>
+					<li><a href="LoginPage.jsp">Logout</a></li>
 			</ul>
 		</nav>
 	</div>
