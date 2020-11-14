@@ -28,5 +28,50 @@
 		<h1>
 			Hi, ${message} 
 		</h1>
+		
+		<div class="content clearfix">
+			<div class="main-content">
+					<h1 class="recent-post-title">Recent Posts</h1>
+					<div class="post">
+						<img scr="" alt="">
+						<div class="post-review">
+							<h1><a href="">Post Title</a></h1>
+							<i class="far fa-user">John Hill</i>
+							&nbsp;
+							<i class="far calendar">Mar 11, 2019</i>
+							<p class="preview-text">Each post listing will consist of the featured image of the post, the post title, author, date published and a read more button leading to the full post details page</p>
+							<a href="" class="btn read-more">Read More</a>
+						</div>
+					</div>
+					
+					<div class="post">
+						<img scr="" alt="">
+						<div class="post-review">
+							<h1><a href="">Post Title</a></h1>
+							<i class="far fa-user">John Hill</i>
+							&nbsp;
+							<i class="far calendar">Mar 11, 2019</i>
+							<p class="preview-text">Each post listing will consist of the featured image of the post, the post title, author, date published and a read more button leading to the full post details page</p>
+							<a href="" class="btn read-more">Read More</a>
+						</div>
+					</div>
+					
+					<div class="post">
+						<img scr="" alt="">
+						<div class="post-review">
+							<h1><a href="">Post Title</a></h1>
+							<i class="far fa-user">John Hill</i>
+							&nbsp;
+							<i class="far calendar">Mar 11, 2019</i>
+							<p class="preview-text">Each post listing will consist of the featured image of the post, the post title, author, date published and a read more button leading to the full post details page</p>
+							<a href="" class="btn read-more">Read More</a>
+						</div>
+					</div>
+				
+			</div>
+			<div class="sidebar"></div>
+		</div>
+		
+		
 	</body>
 </html>
