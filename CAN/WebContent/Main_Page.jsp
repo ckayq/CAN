@@ -21,12 +21,17 @@
 					<li><a href="Main_Page.jsp">Home</a></li>
 					<li><a href="Profile_Page.jsp">Profile</a></li>
 					<li><a href="#">Store</a></li>
-					<li><a href="#">Logout</a></li>
+					<li><a href="LogoutPage.jsp">Logout</a></li>
 				</ul>
 			</nav>
 		</div>
+		
+		<% 
+			String email = (String) session.getAttribute("email");
+		%>
+		
 		<h1>
-			Hi, ${message} 
+			Hi, ${ message } <% out.println(email); %> 
 		</h1>
 		
 		<div class="content clearfix">
