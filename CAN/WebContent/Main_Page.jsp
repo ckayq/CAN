@@ -16,17 +16,62 @@
 				<label for="check" class="checkbtn">
 					<i class="fas fa-bars"></i>
 				</label>
-				<label class="logo"><a href="Main_Page.jsp">WWW</a></label>
+				<label class="logo">WWW</label>
 				<ul>
 					<li><a href="Main_Page.jsp">Home</a></li>
 					<li><a href="Profile_Page.jsp">Profile</a></li>
-					<li><a href="store_page.jsp">Store</a></li>
-					<li><a href="LoginPage.jsp">Logout</a></li>
+					<li><a href="#">Store</a></li>
+					<li><a href="#">Logout</a></li>
 				</ul>
 			</nav>
 		</div>
 		<h1>
 			Hi, ${message} 
 		</h1>
+		
+		<div class="content clearfix">
+			<div class="main-content">
+					<h1 class="recent-post-title">Recent Posts</h1>
+					<div class="post">
+						<img scr="" alt="">
+						<div class="post-review">
+							<h1><a href="">Post Title</a></h1>
+							<i class="far fa-user">John Hill</i>
+							&nbsp;
+							<i class="far calendar">Mar 11, 2019</i>
+							<p class="preview-text">Each post listing will consist of the featured image of the post, the post title, author, date published and a read more button leading to the full post details page</p>
+							<a href="" class="btn read-more">Read More</a>
+						</div>
+					</div>
+					
+					<div class="post">
+						<img scr="" alt="">
+						<div class="post-review">
+							<h1><a href="">Post Title</a></h1>
+							<i class="far fa-user">John Hill</i>
+							&nbsp;
+							<i class="far calendar">Mar 11, 2019</i>
+							<p class="preview-text">Each post listing will consist of the featured image of the post, the post title, author, date published and a read more button leading to the full post details page</p>
+							<a href="" class="btn read-more">Read More</a>
+						</div>
+					</div>
+					
+					<div class="post">
+						<img scr="" alt="">
+						<div class="post-review">
+							<h1><a href="">Post Title</a></h1>
+							<i class="far fa-user">John Hill</i>
+							&nbsp;
+							<i class="far calendar">Mar 11, 2019</i>
+							<p class="preview-text">Each post listing will consist of the featured image of the post, the post title, author, date published and a read more button leading to the full post details page</p>
+							<a href="" class="btn read-more">Read More</a>
+						</div>
+					</div>
+				
+			</div>
+			<div class="sidebar"></div>
+		</div>
+		
+		
 	</body>
 </html>
