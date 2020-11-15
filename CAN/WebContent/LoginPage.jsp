@@ -23,7 +23,8 @@
 					</div>
 					<div class="card-body">
 						<form action="Login" method="post">
-							<h5 style="color: white;">${message}</h5>
+							<h5 style="color: white;">${wrongUserMessage}</h5>
+							<h5 style="color: white;">${userCreatedMessage}</h5>
 							<h5 style="color: white;">${passwordChangegMessage}</h5>
 							<div class="input-group form-group">
 								<div class="input-group-prepend">

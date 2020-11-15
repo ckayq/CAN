@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import user.User;
 import user.UserDAO;
@@ -32,10 +33,16 @@ public class Login extends HttpServlet {
 		user = userDAO.getUser(email, password, user.getFirstName());
 		
 		if(submitBtn.equals("Login") && user!=null && user.getEmail()!=null && user.getPassword()!=null) {
+			HttpSession session = request.getSession();
+			
+			session.setAttribute("email", email);
+			
+			//response.sendRedirect("Main_Page.jsp");
+			
 			request.setAttribute("message", user.getFirstName());
 			request.getRequestDispatcher("Main_Page.jsp").forward(request, response);
 		} else {
-			request.setAttribute("message", "No such user! Please create an account first.");
+			request.setAttribute("wrongUserMessage", "No such user! Please create an account first.");
 			request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 		}
 	}

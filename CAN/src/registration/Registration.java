@@ -32,6 +32,9 @@ public class Registration extends HttpServlet {
 		int result = userDAO.insertUser(user);
 		
 		response.getWriter().println(result);
+		
+		request.setAttribute("userCreatedMessage", "You have created an account, log in to continue.");
+		request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 	}
 
 }
