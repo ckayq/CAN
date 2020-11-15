@@ -96,10 +96,6 @@ public class UserDAOImpl implements UserDAO {
 			}
 			
 			System.out.println(user.getEmail());
-			System.out.println(user.getFirstName());
-			System.out.println(user.getLastName());
-			System.out.println(user.getPhoneNumber());
-			
 			String updateStmt = "UPDATE user SET Password=? WHERE Email_ID=? AND FirstName=? AND LastName=? AND PhoneNumber=?;";
 			
 			preparedStmt = con.prepareStatement(updateStmt);
@@ -114,7 +110,6 @@ public class UserDAOImpl implements UserDAO {
 			
 			if(result > 0) {
 				user.setPassword(resultSet.getString(1));
-
 			}		
 			
 			con.close();
