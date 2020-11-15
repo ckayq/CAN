@@ -37,69 +37,69 @@
 	        <div class="col-md-12">
 				<div class="col-xs-12 col-sm-6 col-md-3">
 					<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/beaver.jpg">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$1</label></h3>
+	    							<h3 style="margin:5px auto;"><label> 10 Coins </label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Canadian Beaver </p>
 						</div>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-3">
 	    			<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/mario.jpg">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$2</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Mario </p>
 						</div>
 					</div>
 				</div>
 	            <div class="col-xs-12 col-sm-6 col-md-3">
 	    			<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/skull.jpg">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$3</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Skull </p>
 						</div>
 					</div>
 				</div>
 	            <div class="col-xs-12 col-sm-6 col-md-3">
 	    			<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/fall.jpg">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$4</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Fall Guys </p>
 						</div>
 					</div>
 				</div>
@@ -112,69 +112,69 @@
 	        <div class="col-md-12">
 				<div class="col-xs-12 col-sm-6 col-md-3">
 					<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/ghost.jpg">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$1</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Ghost </p>
 						</div>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-3">
 	    			<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/penguin.jpg">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$2</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Penguin </p>
 						</div>
 					</div>
 				</div>
 	            <div class="col-xs-12 col-sm-6 col-md-3">
 	    			<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/pikachu.jpg">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$3</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Pikachu </p>
 						</div>
 					</div>
 				</div>
 	            <div class="col-xs-12 col-sm-6 col-md-3">
 	    			<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/amoung.jpg">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>100</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> dfdsfsfdsfsdfsd</p>
+							<p> Amoung Us </p>
 						</div>
 					</div>
 				</div>
@@ -189,90 +189,90 @@
 	        <div class="col-md-12">
 				<div class="col-xs-12 col-sm-6 col-md-3">
 					<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/bronze.jpg">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$1</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Bronze Tier </p>
 						</div>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-3">
 	    			<div class="thumbnail" >
-						<img src="https://steamuserimages-a.akamaihd.net/ugc/155775053189551139/9F0AE133A4ED32CABB290719A5EC2E28415B8B4C/" class="img-responsive">
+						<img src="images/silver.JPG">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$2</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Silver Tier </p>
 						</div>
 					</div>
 				</div>
 	            <div class="col-xs-12 col-sm-6 col-md-3">
 	    			<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/gold.JPG">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$3</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Gold Tier </p>
 						</div>
 					</div>
 				</div>
 	            <div class="col-xs-12 col-sm-6 col-md-3">
 	    			<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+						<img src="images/platinum.JPG">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$4</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins </label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Platinum Tier </p>
 						</div>
 					</div>
 				</div>
+	        <div class="col-md-12">
 				<div class="col-xs-12 col-sm-6 col-md-3">
-	    			<div class="thumbnail" >
-						<img src="http://placehold.it/700x350&text=1" class="img-responsive">
+					<div class="thumbnail" >
+						<img src="images/diamond.JPG">
 						<div class="caption">
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-4 price">
-	    							<h3 style="margin:5px auto;"><label>$4</label></h3>
+	    							<h3 style="margin:5px auto;"><label>10 Coins</label></h3>
 								</div>
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy </a>
 	    						</div>
 							</div>
 	
-							<p> </p>
+							<p> Diamond Tier </p>
 						</div>
 					</div>
 				</div>
-	        </div> 
 	
 		</div>
 	</div>
