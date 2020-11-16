@@ -35,12 +35,9 @@ public class Login extends HttpServlet {
 		if(submitBtn.equals("Login") && user!=null && user.getEmail()!=null && user.getPassword()!=null) {
 			HttpSession session = request.getSession();
 			
-			session.setAttribute("email", email);
+			session.setAttribute("currentUser", user);
 			
-			//response.sendRedirect("Main_Page.jsp");
-			
-			request.setAttribute("message", user.getFirstName());
-			request.getRequestDispatcher("Main_Page.jsp").forward(request, response);
+			response.sendRedirect("Main_Page.jsp");
 		} else {
 			request.setAttribute("wrongUserMessage", "No such user! Please create an account first.");
 			request.getRequestDispatcher("LoginPage.jsp").forward(request, response);

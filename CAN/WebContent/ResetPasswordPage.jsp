@@ -61,7 +61,7 @@
 					    </div> 
 					                                   
 					    <div class="form-group">
-					        <input type="submit" name="submit" value="ResetPassword" class="btn btn-primary btn-block">
+					        <input type="submit" name="submit" value="Reset Password" class="btn btn-primary btn-block">
 					    </div>      
 					    <p class="text-center">Have an account? <a href="LoginPage.jsp">Log In</a> </p>                                                                 
 					</form>
