@@ -1,12 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="user.User" %>
+<%@ page import="post.Post" %>
+    
+<%
+
+    User user = (User) session.getAttribute("currentUser");
+
+    if (user == null) {
+        response.sendRedirect("LoginPage.jsp");
+    }
+
+	String userName = user.getFirstName();
+%>
+    
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Insert title here</title>
+		<title>Home Page</title>
+		
 		<link rel="stylesheet" href="nav_style.css">
 		<link rel="stylesheet" href="main_style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		
 		<script src="https://kit.fontawesome.com/a076d05399.js%22%3E"></script>
 	</head>
 	<body>
@@ -20,19 +37,20 @@
 				<ul>
 					<li><a href="Main_Page.jsp">Home</a></li>
 					<li><a href="Profile_Page.jsp">Profile</a></li>
-					<li><a href="#">Store</a></li>
+					<li><a href="store_page.jsp">Store</a></li>
 					<li><a href="LogoutPage.jsp">Logout</a></li>
 				</ul>
 			</nav>
 		</div>
 		
-		<% 
-			String email = (String) session.getAttribute("email");
-		%>
-		
-		<h1>
-			Hi, ${ message } <% out.println(email); %> 
-		</h1>
+		<div class="container">
+			<div class="row">
+				<h1>
+					Hi, <% out.println(userName); %>
+				</h1>
+				<li><a href="CreatePostPage.jsp">Create Post</a></li>
+			</div>
+		</div>
 		
 		<div class="content clearfix">
 			<div class="main-content">
