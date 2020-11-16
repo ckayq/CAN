@@ -18,35 +18,72 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Create Post</title>
-				
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="Login.css">
+
+		<link rel="stylesheet" href="nav_style.css">
+		<link rel="stylesheet" href="main_style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 		
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://kit.fontawesome.com/a076d05399.js%22%3E"></script>
+
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 	</head>
-	<body>
+	<body style="background-color:powderblue;">
+	
+	<div class="topnav">
+			<nav>
+				<input type="checkbox" id="check">
+				<label for="check" class="checkbtn">
+					<i class="fas fa-bars"></i>
+				</label>
+				<label class="logo">WWW</label>
+				<ul>
+					<li><a href="Main_Page.jsp">Home</a></li>
+					<li><a href="Profile_Page.jsp">Profile</a></li>
+					<li><a href="store_page.jsp">Store</a></li>
+					<li><a href="LogoutPage.jsp">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	
 		<div class="container">
-			<div class="d-flex justify-content-center h-100">
-				<div class="card">
-					<div class="card-body">
-						<form action="CreatePost" method="post">
-							<div class="form-group">
-								<label for="exampleFormControlInput1">Title</label>
-								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" name="postTitle">
-							 </div>
-							  <div class="form-group">
-							    <label for="exampleFormControlTextarea1">Body</label>
-							    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Contents...." name="postBody"></textarea>
-							  </div>
-						  	<div class="form-group">
-								<input type="submit" name="submit" value="Create Post" class="btn float-right btn-outline-success">
-							</div>
-						</form>
-					</div>
+			<div class="row">
+			    
+			    <div class="col-md-8 col-md-offset-2">
+			        
+		    		<h1>Create post</h1>
+		    		
+		    		<form action="CreatePost" method="post">
+		
+		    		    
+		    		    <div class="form-group">
+		    		        <label for="title">Title <span class="require">*</span></label>
+		    		        <input type="text" class="form-control" name="postTitle" />
+		    		    </div>
+		    		    
+		    		    <div class="form-group">
+		    		        <label for="description">Body</label>
+		    		        <textarea rows="5" class="form-control" name="postBody" ></textarea>
+		    		    </div>
+		    		    
+		    		    <div class="form-group">
+		    		        <p><span class="require">*</span> - required fields</p>
+		    		    </div>
+		    		    
+		    		    <div class="form-group">
+		    		        <button type="submit" class="btn btn-primary" value="Create Post">
+		    		            Create
+		    		        </button>
+		    		        <button class="btn btn-default">
+		    		            Cancel
+		    		        </button>
+		    		    </div>
+		    		    
+		    		</form>
 				</div>
+				
 			</div>
 		</div>
 	</body>
