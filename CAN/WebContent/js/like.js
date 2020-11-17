@@ -1,5 +1,5 @@
 function doLike(postID, email_ID) {
-	console.log(userID + ", " + email_ID);
+	console.log(postID + ", " + email_ID);
 	
 	const DATA = {
 		postID: postID,
@@ -8,13 +8,22 @@ function doLike(postID, email_ID) {
 	}
 	
 	$.ajax({
-		url: "LikePostServlet",
+		type: "POST",
+		url: "LikePost",
 		data: DATA,
 		success: function(data, textStatus, jqXHR) {
 			console.log(data);
+			
+			if(data.trim() == 'true') {
+				let counter = $(".like-counter").html();
+				
+				counter++;
+				
+				$(".like-counter").html(counter);
+			}
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
             console.log(data);
         }
-	})
+	});
 }

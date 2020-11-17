@@ -32,15 +32,14 @@ public class LikePostServlet extends HttpServlet {
         	LikeDAO likeDAO = new LikeDAOImpl(ConnectionProvider.getConnection());
         	
         	if(operation.equals("like")) {
-        		int status = likeDAO.insertLike(postID, email_ID);
+        		boolean flag = likeDAO.insertLike(postID, email_ID);
         		
-        		out.println(status);
+        		out.println(flag);
         	}
         }
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
 
+	}
 }

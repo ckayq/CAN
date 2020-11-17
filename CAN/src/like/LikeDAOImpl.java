@@ -14,8 +14,8 @@ public class LikeDAOImpl implements LikeDAO {
     }
 	
 	@Override
-	public int insertLike(int postID, String email_ID) {
-		int status = 0;
+	public boolean insertLike(int postID, String email_ID) {
+		boolean isInserted = false;
 		
 		try {
 			con = ConnectionProvider.getConnection();
@@ -27,14 +27,16 @@ public class LikeDAOImpl implements LikeDAO {
 			preparedStmt.setInt(1, postID);
 			preparedStmt.setString(2, email_ID);
 			
-			status = preparedStmt.executeUpdate();
+			preparedStmt.executeUpdate();
+			
+			isInserted = true; 
 			
 			con.close();
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
 		
-		return status;
+		return isInserted;
 	}
 
 	@Override
