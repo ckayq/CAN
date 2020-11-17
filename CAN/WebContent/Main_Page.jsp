@@ -27,7 +27,8 @@
 		<link rel="stylesheet" href="css/main_style.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 		
-		<script src="https://kit.fontawesome.com/a076d05399.js%22%3E"></script>
+		<script src="https://kit.fontawesome.com/0e28daf7be.js" crossorigin="anonymous"></script>
+		<script src="js/Like.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div class="topnav">
@@ -63,7 +64,7 @@
 				
 				List<Post> postList = postDAO.getAllPosts();
 				
-				for (Post post : postList) 
+				for(Post post : postList) 
 				{ %>
 					
 					<div class="col-sm-3 mt-4">
@@ -73,7 +74,12 @@
 					        <p class="card-text"> <% out.println(post.getPostBody()); %> </p>
 					        <p class="card-text"> Author: <% out.println(post.getPostAuthorEmail()); %> </p>
 					        <p class="card-text"> Posted on: <% out.println(post.getPostCreationDate()); %> </p>
-					        <a href="#" class="btn float-right btn-primary">Like</a>
+					      </div>
+					      <div class="card-footer">
+					      	<a href="#!" class="btn btn-outline-primary btn-sm float-right" onclick="doLike(<% out.print(post.getPostID()); %>, <% out.println(user.getEmail()); %>)"> 
+					      		<i class="fa fa-thumbs-o-up"></i> 
+					      		<span class="like-counter"></span>
+					      	</a>
 					      </div>
 						</div>
 					</div>		
