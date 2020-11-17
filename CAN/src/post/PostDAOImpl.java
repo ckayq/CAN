@@ -42,7 +42,6 @@ public class PostDAOImpl implements PostDAO {
 			con.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			System.out.println("Here");
 		}
 		
 		return flag;
