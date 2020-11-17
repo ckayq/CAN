@@ -19,6 +19,7 @@
 		<div class="container">
 			<div class="card bg-light">
 				<article class="card-body mx-auto" style="max-width: 400px;">
+					<h4 class="card-title mt-3 text-center">${ emptyMessage }</h4>
 					<h4 class="card-title mt-3 text-center">Create Account</h4>
 					<p class="text-center">Get started with your free account</p>	
 					<p class="divider-text">
@@ -57,7 +58,7 @@
 					    </div> <!-- form-group// -->                                      
 					    <div class="form-group">
 					        <button type="submit" name="submit" value="Register" class="btn btn-primary btn-block">Create Account</button>
-					    </div> <!-- form-group// -->      
+					    </div>   
 					    <p class="text-center">Have an account? <a href="LoginPage.jsp">Log In</a> </p>                                                                 
 					</form>
 				</article>
