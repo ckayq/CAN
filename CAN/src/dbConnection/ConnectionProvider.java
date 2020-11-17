@@ -12,7 +12,7 @@ public class ConnectionProvider implements DbConnection {
 			
 			con = DriverManager.getConnection(url, user, password);
 		} catch(Exception ex) {
-			System.out.println(ex);
+			ex.printStackTrace();
 		}
 		
 		return con;

@@ -22,6 +22,16 @@ public class Post {
 		this.postTitle = postTitle;
 		this.postBody = postBody;
 	}
+	
+	public Post(int postID, String postAuthorEmail, Timestamp postCreationDate, String postTitle, String postBody) {
+		super();
+		
+		this.postID = postID;
+		this.postAuthorEmail = postAuthorEmail;
+		this.postCreationDate = postCreationDate;
+		this.postTitle = postTitle;
+		this.postBody = postBody;
+	}
 
 	public int getPostID() {
 		return postID;
