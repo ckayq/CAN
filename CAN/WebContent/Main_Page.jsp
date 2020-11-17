@@ -47,15 +47,15 @@
 			</nav>
 		</div>
 		
-		<div class="container">
+		<div class="spacing">
 			<div class="row">
 				<h1>
-					Hi, <% out.println(userName); %>
+					Hello, <% out.println(userName); %>
 				</h1>
-				<li><a href="CreatePostPage.jsp">Create Post</a></li>
 			</div>
-		</div>
-		
+				<button class="button" type="button" onclick="CreatePostPage.jsp">Create Post</button>
+		</div><br>
+		<h1 class="spacing"> Recent Posts </h1>
 		<div class="content clearfix">
 			<div class="row">
 			
@@ -68,12 +68,12 @@
 				{ %>
 					
 					<div class="col-sm-3 mt-4">
-					    <div class="card">
-					      <div class="card-body">
-					        <h5 class="card-title"> <% out.println(post.getPostTitle()); %> </h5>
-					        <p class="card-text"> <% out.println(post.getPostBody()); %> </p>
-					        <p class="card-text"> Author: <% out.println(post.getPostAuthorEmail()); %> </p>
-					        <p class="card-text"> Posted on: <% out.println(post.getPostCreationDate()); %> </p>
+					    <div class="card" >
+					      <div class="card-body" style="background-color:powderblue;">
+					        <h5 class="card-title" style="font-size:20px"> <% out.println(post.getPostTitle()); %> </h5>
+					        <p class="card-text" style="font-size:12px" style="color:gray;"> Author: <% out.println(post.getPostAuthorEmail()); %> </p>
+					        <p class="card-text" style="font-size:24px"> <% out.println(post.getPostBody()); %> </p>
+					        <p class="card-text" style="font-size:12px" style="color:gray;"> Posted on: <% out.println(post.getPostCreationDate()); %> </p>
 					      </div>
 					      <div class="card-footer">
 					      	<a href="#!" class="btn btn-outline-primary btn-sm float-right" onclick="doLike(<% out.print(post.getPostID()); %>, <% out.println(user.getEmail()); %>)"> 
