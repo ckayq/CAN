@@ -57,3 +57,25 @@ body {
 .content .main-content .recent-post-title {
 	margin:20px;
 }
+
+.button {
+  background-color: powderblue;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.author {
+	font-size: 14px;
+	
+}
+
+.spacing {
+	margin-left:2em
+}
