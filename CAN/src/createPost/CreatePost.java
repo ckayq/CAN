@@ -42,12 +42,15 @@ public class CreatePost extends HttpServlet {
 		
 		PostDAO postDAO = new PostDAOImpl();
 		
-		if(postDAO.insertPost(post)) {
-			System.out.println("Post created");
-			
-			response.sendRedirect("http://localhost:8080/CAN/Main_Page.jsp");
+		if(!postTitle.equals("") && !postBody.equals("") && post!=null) {
+			if(postDAO.insertPost(post)) {
+				System.out.println("Post created");
+				
+				response.sendRedirect("http://localhost:8080/CAN/Main_Page.jsp");
+			}
 		} else {
-			System.out.println("Error");
+			request.setAttribute("emptyEntryMessage", "Please fill in the post title and body!");
+			request.getRequestDispatcher("CreatePostPage.jsp").forward(request, response);
 		}
 	}
 }

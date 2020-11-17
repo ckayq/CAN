@@ -53,6 +53,8 @@
 			    
 			    <div class="col-md-8 col-md-offset-2">
 			        
+			        <h3>${ emptyEntryMessage }</h3>
+			        
 		    		<h1>Create post</h1>
 		    		
 		    		<form action="CreatePost" method="post">
