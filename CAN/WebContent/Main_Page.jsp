@@ -57,7 +57,7 @@
 					Hello, <% out.println(userName); %>
 				</h1>
 			</div>
-				<button class="button" type="button" onclick="CreatePostPage.jsp">Create Post</button>
+				<a href="CreatePostPage.jsp"><button class="button" type="button">Create Post</button></a>
 		</div><br>
 		<h1 class="spacing"> Recent Posts </h1>
 		<div class="content clearfix">
@@ -74,7 +74,7 @@
 				{ %>
 					
 					<div class="col-sm-3 mt-4">
-					    <div class="card" >
+					    <div class="card">
 					      <div class="card-body" style="background-color:powderblue;">
 					        <h5 class="card-title" style="font-size:20px"> <% out.println(post.getPostTitle()); %> </h5>
 					        <p class="card-text" style="font-size:12px" style="color:gray;"> Author: <% out.println(post.getPostAuthorEmail()); %> </p>
