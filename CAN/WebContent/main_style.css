@@ -25,16 +25,8 @@ body {
 }
 
 .content {
-	width:90%;
-	margin:30px auto 30px;
-	border:1px solid red;
-}
-
-
-.content .main-content {
-	width:70%;
-	float:left;
-	border:1px solid blue;
+	width: 90%;
+	margin: 30px auto 30px;
 }
 
 .content .main-content .post{
@@ -60,13 +52,6 @@ body {
 	background: #006669;
 	color:white !important;
 	transition: .25s;
-}
-
-.content .sidebar {
-	width:30%;
-	float:left;
-	border:1px dashed green;
-	height:300px;
 }
 
 .content .main-content .recent-post-title {
