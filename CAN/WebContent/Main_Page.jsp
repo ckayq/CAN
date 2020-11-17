@@ -4,6 +4,8 @@
 <%@ page import="user.User" %>
 <%@ page import="post.Post" %>
 <%@ page import="post.PostDAOImpl" %>
+<%@ page import="like.LikeDAO" %>
+<%@ page import="like.LikeDAOImpl" %>
 <%@ page import="dbConnection.ConnectionProvider" %>
     
 <%
@@ -28,7 +30,9 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 		
 		<script src="https://kit.fontawesome.com/0e28daf7be.js" crossorigin="anonymous"></script>
-		<script src="js/Like.js" type="text/javascript"></script>
+		
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="js/like.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div class="topnav">
@@ -61,6 +65,8 @@
 			
 			<%
 				PostDAOImpl postDAO = new PostDAOImpl(ConnectionProvider.getConnection());
+						
+				LikeDAO likeDAO = new LikeDAOImpl(ConnectionProvider.getConnection());
 				
 				List<Post> postList = postDAO.getAllPosts();
 				
@@ -76,9 +82,9 @@
 					        <p class="card-text"> Posted on: <% out.println(post.getPostCreationDate()); %> </p>
 					      </div>
 					      <div class="card-footer">
-					      	<a href="#!" class="btn btn-outline-primary btn-sm float-right" onclick="doLike(<% out.print(post.getPostID()); %>, <% out.println(user.getEmail()); %>)"> 
+					      	<a href="#!" class="btn btn-outline-primary btn-sm float-right" onclick="doLike('<% out.print(post.getPostID()); %>', '<% out.print(user.getEmail()); %>')">	
 					      		<i class="fa fa-thumbs-o-up"></i> 
-					      		<span class="like-counter"></span>
+					      		<span class="like-counter"><% likeDAO.countLikesOnPost(post.getPostID()); %></span>
 					      	</a>
 					      </div>
 						</div>
