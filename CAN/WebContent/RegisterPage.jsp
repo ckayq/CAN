@@ -14,7 +14,8 @@
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>	
-	<body style="background-color:navy;">
+	<body style="background-color:lightblue;">
+	<br><br>
 		<div class="container">
 			<div class="card bg-light">
 				<article class="card-body mx-auto" style="max-width: 400px;">
@@ -24,22 +25,22 @@
 				    </p>
 					<form action="Registration" method="post">
 						<div class="form-group input-group">
+					    	<div class="input-group-prepend">
+							    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+							 </div>
+					        <input name="email" class="form-control" placeholder="Email address" type="email">
+					    </div>
+						<div class="form-group input-group">
 							<div class="input-group-prepend">
 							    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 							 </div>
 					        <input name="firstName" class="form-control" placeholder="First name" type="text">
-					    </div> <!-- form-group// -->
+					    </div> 
 					    <div class="form-group input-group">
 							<div class="input-group-prepend">
 							    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 							 </div>
 					        <input name="lastName" class="form-control" placeholder="Last name" type="text">
-					    </div>
-					    <div class="form-group input-group">
-					    	<div class="input-group-prepend">
-							    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-							 </div>
-					        <input name="email" class="form-control" placeholder="Email address" type="email">
 					    </div>
 					    <div class="form-group input-group">
 					    	<div class="input-group-prepend">

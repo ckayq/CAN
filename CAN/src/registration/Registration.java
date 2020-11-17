@@ -29,12 +29,16 @@ public class Registration extends HttpServlet {
 		
 		UserDAOImpl userDAO = new UserDAOImpl();
 		
+		if(!firstName.equals("") && !lastName.equals("") && !email.equals("") && !phoneNumber.equals("") && !password.equals("")) {
 		int result = userDAO.insertUser(user);
-		
 		response.getWriter().println(result);
 		
 		request.setAttribute("userCreatedMessage", "You have created an account, log in to continue.");
 		request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
+		} else {
+			request.setAttribute("emptyMessage", "One or more fields is empty");
+			request.getRequestDispatcher("RegisterPage.jsp").forward(request, response);
+		}
 	}
 
 }
