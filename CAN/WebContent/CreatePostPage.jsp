@@ -19,13 +19,12 @@
 		<meta charset="ISO-8859-1">
 		<title>Create Post</title>
 
-		<link rel="stylesheet" href="nav_style.css">
-		<link rel="stylesheet" href="main_style.css">
+		<link rel="stylesheet" href="css/nav_style.css">
+		<link rel="stylesheet" href="css/main_style.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 		
 		<script src="https://kit.fontawesome.com/a076d05399.js%22%3E"></script>
-
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
