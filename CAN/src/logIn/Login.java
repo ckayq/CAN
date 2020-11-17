@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
 			
 			response.sendRedirect("Main_Page.jsp");
 		} else {
-			request.setAttribute("wrongUserMessage", "No such user! Please create an account first.");
+			request.setAttribute("wrongUserMessage", "The email or password you entered is incorrect");
 			request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 		}
 	}

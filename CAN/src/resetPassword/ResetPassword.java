@@ -27,7 +27,6 @@ public class ResetPassword extends HttpServlet {
 		String lastName = request.getParameter("lastName");
 		String phoneNumber = request.getParameter("phoneNumber");
 		String newPassword = request.getParameter("newPassword");
-		String submitBtn = request.getParameter("submit");
 
 		User user = new User();
 		
@@ -36,15 +35,15 @@ public class ResetPassword extends HttpServlet {
 		if(user.getEmail() !=null && user.getFirstName() !=null && user.getLastName() != null && user.getPhoneNumber() != null){
 			if(email!=null && firstName!=null && lastName!=null && phoneNumber!=null && newPassword!=null) {
 				if(user.getEmail().equals(email) && user.getFirstName().equals(firstName) && user.getLastName().equals(lastName) && user.getPhoneNumber().equals(phoneNumber)) {
-					request.setAttribute("passwordChangegMessage", "You have successfully changed your password.");
+					request.setAttribute("passwordChangegMessage", "You have successfully changed your password");
 					request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 				} else {
-					request.setAttribute("wrongDataMessage", "Some of the data do not match.");
+					request.setAttribute("wrongDataMessage", "Some of the data do not match");
 					request.getRequestDispatcher("ResetPasswordPage.jsp").forward(request, response);
 				}
 			} 
 		} else {
-			request.setAttribute("wrongDataMessage", "Some of the data do not match.");
+			request.setAttribute("wrongDataMessage", "Some of the data do not match");
 			request.getRequestDispatcher("ResetPasswordPage.jsp").forward(request, response);
 		}
 	}
