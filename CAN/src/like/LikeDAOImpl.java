@@ -9,6 +9,10 @@ public class LikeDAOImpl implements LikeDAO {
 	static Connection con;
 	static PreparedStatement preparedStmt;
 	
+    public LikeDAOImpl(Connection con) {
+        this.con = con;
+    }
+	
 	@Override
 	public int insertLike(int postID, String email_ID) {
 		int status = 0;
