@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import dbConnection.ConnectionProvider;
+import like.Like;
 import like.LikeDAO;
 import like.LikeDAOImpl;
+import user.User;
 
 @WebServlet("/LikePost")
 public class LikePostServlet extends HttpServlet {
@@ -20,26 +22,22 @@ public class LikePostServlet extends HttpServlet {
     public LikePostServlet() {
         super();
     }
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        try (PrintWriter out = response.getWriter()) {
-        	String operation = request.getParameter("operaion");
-        	int postID = Integer.parseInt(request.getParameter("postID"));
-        	String email_ID = request.getParameter("email_ID");
-        	
-        	LikeDAO likeDAO = new LikeDAOImpl(ConnectionProvider.getConnection());
-        	
-        	if(operation.equals("like")) {
-        		boolean flag = likeDAO.insertLike(postID, email_ID);
-        		
-        		out.println(flag);
-        	}
-        }
-    }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		String postID = request.getParameter("postID");
+		String postAuthor = request.getParameter("postAuthor");
+		double likes = 1;
+		
+		HttpSession session = request.getSession();
+		
+		User user = (User) session.getAttribute("currentUser");
+		
+		Like like = new Like(Integer.parseInt(postID), postAuthor, likes);
+		
+		LikeDAO likeDAO = new LikeDAOImpl();
+		
+		likeDAO.insertLike(likes, postAuthor);
+		
+		response.sendRedirect("http://localhost:8080/CAN/Main_Page.jsp");
 	}
 }

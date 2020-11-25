@@ -9,7 +9,7 @@ public class Post {
 	private String postTitle;
 	private String postBody;
 	private int postLikes;
-	
+
 	public Post() {
 		super();
 	}

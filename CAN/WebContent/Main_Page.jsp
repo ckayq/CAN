@@ -15,8 +15,6 @@
     if (user == null) {
         response.sendRedirect("LoginPage.jsp");
     }
-
-	String userName = user.getFirstName();
 %>
     
 <!DOCTYPE html>
@@ -31,8 +29,7 @@
 		
 		<script src="https://kit.fontawesome.com/0e28daf7be.js" crossorigin="anonymous"></script>
 		
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="js/like.js" type="text/javascript"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<div class="topnav">
@@ -54,7 +51,7 @@
 		<div class="spacing">
 			<div class="row">
 				<h1>
-					Hello, <% out.println(userName); %>
+					Hello, <% out.println(user.getFirstName()); %>
 				</h1>
 			</div>
 				<a href="CreatePostPage.jsp"><button class="button" type="button">Create Post</button></a>
@@ -82,10 +79,16 @@
 					        <p class="card-text" style="font-size:12px" style="color:gray;"> Posted on: <% out.println(post.getPostCreationDate()); %> </p>
 					      </div>
 					      <div class="card-footer">
-					      	<a href="#!" class="btn btn-outline-primary btn-sm float-right" onclick="doLike('<% out.print(post.getPostID()); %>', '<% out.print(user.getEmail()); %>')">	
-					      		<i class="fa fa-thumbs-o-up"></i> 
-					      		<span class="like-counter"><% likeDAO.countLikesOnPost(post.getPostID()); %></span>
-					      	</a>
+					      <form action="LikePost" method="post">
+					      	<button type="submit" class="btn btn-outline-primary btn-sm float-right" value="Like Post">
+		    		            <a href="#!" class="btn btn-outline-primary btn-sm float-right">	
+						      		<i class="fa fa-thumbs-o-up"></i> 
+						      		<span class="like-counter"><% likeDAO.countLikesOnPost(post.getPostID()); %></span>
+					      		</a>
+		    		        </button>
+					      	<input type="hidden" class="form-control" name="postID" value="<% out.print(post.getPostID()); %>"/>
+					      	<input type="hidden" class="form-control" name="postAuthor" value="<% out.println(post.getPostAuthorEmail()); %>"/>
+					      </form>
 					      </div>
 						</div>
 					</div>		
