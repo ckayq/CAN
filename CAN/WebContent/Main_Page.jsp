@@ -83,7 +83,7 @@
 					      	<button type="submit" class="btn btn-outline-primary btn-sm float-right" value="Like Post">
 		    		            <a href="#!" class="btn btn-outline-primary btn-sm float-right">	
 						      		<i class="fa fa-thumbs-o-up"></i> 
-						      		<span class="like-counter"><% likeDAO.countLikesOnPost(post.getPostID()); %></span>
+						      		
 					      		</a>
 		    		        </button>
 					      	<input type="hidden" class="form-control" name="postID" value="<% out.print(post.getPostID()); %>"/>

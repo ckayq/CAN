@@ -24,15 +24,16 @@ public class LikeDAOImpl implements LikeDAO {
 		
 		try {
 			con = ConnectionProvider.getConnection();
-			
-			double coins = likes * 2;
-			
-			String updateStmt = "UPDATE user SET Coins='" + coins + "' WHERE Email_ID='" + email + "';";
-			
+			System.out.print(email);
+			double coins = likes * 1.5;
+			String fmtEmail = email.trim();
+
+			String updateStmt = "UPDATE user SET Coins = ? WHERE Email_ID=?";
+
 			preparedStmt = con.prepareStatement(updateStmt);
 			
-			//preparedStmt.setDouble(1, coins);
-			//preparedStmt.setString(2, email);
+			preparedStmt.setDouble(1, coins);
+			preparedStmt.setString(2, fmtEmail);
 			
 			System.out.println(updateStmt);
 			
