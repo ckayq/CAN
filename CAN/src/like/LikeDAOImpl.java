@@ -1,6 +1,9 @@
 package like;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.*;
+import java.text.DecimalFormat;
 
 import dbConnection.ConnectionProvider;
 
@@ -9,23 +12,29 @@ public class LikeDAOImpl implements LikeDAO {
 	static Connection con;
 	static PreparedStatement preparedStmt;
 	
+	public LikeDAOImpl() {}
+	
     public LikeDAOImpl(Connection con) {
         this.con = con;
     }
 	
 	@Override
-	public boolean insertLike(int postID, String email_ID) {
+	public boolean insertLike(double likes, String email) {
 		boolean isInserted = false;
 		
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String insertStmt = "INSERT INTO user_post_likes(PostID, Email_ID) VALUES(?, ?)";
+			double coins = likes * 2;
 			
-			preparedStmt = con.prepareStatement(insertStmt);
+			String updateStmt = "UPDATE user SET Coins='" + coins + "' WHERE Email_ID='" + email + "';";
 			
-			preparedStmt.setInt(1, postID);
-			preparedStmt.setString(2, email_ID);
+			preparedStmt = con.prepareStatement(updateStmt);
+			
+			//preparedStmt.setDouble(1, coins);
+			//preparedStmt.setString(2, email);
+			
+			System.out.println(updateStmt);
 			
 			preparedStmt.executeUpdate();
 			

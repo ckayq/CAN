@@ -65,7 +65,7 @@
 		    		    </div>
 		    		    
 		    		    <div class="form-group">
-		    		        <label for="description">Body</label>
+		    		        <label for="description">Body <span class="require">*</span></label>
 		    		        <textarea rows="5" class="form-control" name="postBody" ></textarea>
 		    		    </div>
 		    		    
