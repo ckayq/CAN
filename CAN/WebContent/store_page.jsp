@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  
+<%@ page import="java.util.List"%>
+<%@ page import="user.User" %>
+<%@ page import="image.Image" %>
+<%@ page import="image.ImageDAOImpl" %>
+<%@ page import="dbConnection.ConnectionProvider" %>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,246 +46,95 @@
 	<h2>Store <b>Page</b></h2><br>
 	
 	<div class="container" style="background-color:white;">
-		<div class="row" >
-			<div class="col-md-12" >
-				<h1> Avatars </h1>
-				<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-				</ol>   
+			<div class="row" >
+				<div class="col-md-12" >
+					<h1> Avatar </h1>
+					<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>   
+		
+					<div class="carousel-inner">
+						<div class="item active">
 	
-				<div class="carousel-inner">
-					<div class="item active">
 						<div class="row">
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/amoung.jpg" class="img-responsive" alt="">
+						<%
+						ImageDAOImpl imageDAO = new ImageDAOImpl();
+					
+						List<Image> imageList = imageDAO.getAllImage();
+						
+						for(Image image : imageList)
+						{ %>
+						<% if(image.getImageID() < 9) { %>
+								<div class="col-sm-3">
+									<div class="thumb-wrapper">
+										<div class="img-box">
+											<img src="<% out.print(image.getImageURL()); %>" class="img-responsive" alt="">
+										</div>
+										<div class="thumb-content">
+											<h4><% out.print(image.getProductName());%></h4>
+											<p class="item-price"> <span>Price: <% out.print(String.valueOf(image.getUnitPrice())); %> coins</span></p>
+											<p class="item-price"> <span>Stock: <% out.print(String.valueOf(image.getImageStock())); %></span></p>
+											<a href="#" class="btn btn-primary">Buy</a>
+										</div>						
 									</div>
-									<div class="thumb-content">
-										<h4>Amoung Us</h4>
-										<p class="item-price"> <span>$369.00</span></p>
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
 								</div>
+								<% } %>
+					<% } %>	
 							</div>
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/beaver.jpg" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Eh! Beaver</h4>
-										<p class="item-price"> <span>$23.99</span></p>
-	
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>		
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/fall.jpg" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Fall Guys</h4>
-										<p class="item-price"> <span>$649.00</span></p>
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>								
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/ghost.jpg" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Spooky Ghost</h4>
-										<p class="item-price"> <span>$250.00</span></p>
-	
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="row">
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/mario.jpg" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Its a me Mario</h4>
-										<p class="item-price"> <span>$269.00</span></p>
-	
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/penguin.jpg" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Penguin</h4>
-										<p class="item-price"> <span>$869.00</span></p>
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/pikachu.jpg" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Pika Pikachu</h4>
-										<p class="item-price"> <span>$99.00</span></p>
-	
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/skull.jpg" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Skull</h4>
-										<p class="item-price"> <span>$69.00</span></p>
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>						
 						</div>
 					</div>
 				</div>
-				<a class="carousel-control left" href="#myCarousel" data-slide="prev">
-					<i class="fa fa-angle-left"></i>
-				</a>
-				<a class="carousel-control right" href="#myCarousel" data-slide="next">
-					<i class="fa fa-angle-right"></i>
-				</a>
-			</div>
 			</div>
 		</div>
 	</div>
 	
 	<br><br>
-
 	
 	<div class="container" style="background-color:white;">
-		<div class="row">
-			<div class="col-md-12">
-				<h1> Status </h1>
-				<div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="0">
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel2" data-slide-to="1"></li>
-				</ol>   
-	
-				<div class="carousel-inner">
-					<div class="item active">
+			<div class="row" >
+				<div class="col-md-12" >
+					<h1> Status </h1>
+					<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>   
+		
+					<div class="carousel-inner">
+						<div class="item active">					
+						
 						<div class="row">
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/bronze.jpg" class="img-responsive" alt="">
+						<%
+						for(Image image : imageList)
+						{ %>
+							<% if(image.getImageID() == 9 || image.getImageID() == 10 || image.getImageID() == 11 || 
+									image.getImageID() == 12 || image.getImageID() == 13) { %>
+								<div class="col-sm-3">
+									<div class="thumb-wrapper">
+										<div class="img-box">
+											<img src="<% out.print(image.getImageURL()); %>" class="img-responsive" alt="">
+										</div>
+										<div class="thumb-content">
+											<h4><% out.print(image.getProductName());%></h4>
+											<p class="item-price"> <span><%out.println(image.getUnitPrice()); %> coins</span></p>
+											<a href="#" class="btn btn-primary">Buy</a>
+										</div>						
 									</div>
-									<div class="thumb-content">
-										<h4>Bronze</h4>
-										<p class="item-price"> <span>$369.00</span></p>
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
 								</div>
+								<% } %>
+					<% } %>	
 							</div>
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/silver.JPG" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Silver</h4>
-										<p class="item-price"> <span>$23.99</span></p>
-	
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>		
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/gold.JPG" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Gold</h4>
-										<p class="item-price"> <span>$649.00</span></p>
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>								
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/platinum.JPG" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Platinum</h4>
-										<p class="item-price"> <span>$250.00</span></p>
-	
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="row">
-							<div class="col-sm-3">
-								<div class="thumb-wrapper">
-									<div class="img-box">
-										<img src="images/diamond.JPG" class="img-responsive" alt="">
-									</div>
-									<div class="thumb-content">
-										<h4>Diamond</h4>
-										<p class="item-price"> <span>$269.00</span></p>
-	
-	
-										<a href="#" class="btn btn-primary">Buy</a>
-									</div>						
-								</div>
-							</div>						
 						</div>
 					</div>
 				</div>
-				<a class="carousel-control left" href="#myCarousel2" data-slide="prev">
-					<i class="fa fa-angle-left"></i>
-				</a>
-				<a class="carousel-control right" href="#myCarousel2" data-slide="next">
-					<i class="fa fa-angle-right"></i>
-				</a>
-			</div>
 			</div>
 		</div>
-	</div>
-	<br><br>
+	</div>	
+	
+	
 </body>
 </html>                                		                             		
