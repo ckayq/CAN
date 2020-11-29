@@ -122,4 +122,42 @@ public class UserDAOImpl implements UserDAO {
 		
 		return user;
 	}
+	
+	@Override
+	public User updateAccountDetails(String email, String firstName, String lastName, String phoneNumber, String bio,String newPassword) {
+		User user = new User();
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String fmtEmail = email.trim();
+			
+			String updateStmt = "UPDATE user SET PhoneNumber=?, FirstName=?, LastName=?, Bio=?, Password=? WHERE Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(updateStmt);
+			
+			preparedStmt.setString(1, phoneNumber);
+			preparedStmt.setString(2, firstName);
+			preparedStmt.setString(3, lastName);
+			preparedStmt.setString(4, bio);
+			preparedStmt.setString(5, newPassword);
+			preparedStmt.setString(6, fmtEmail);
+			
+			int result = preparedStmt.executeUpdate();		
+			
+			if(result > 0) {
+				user.setFirstName(firstName);
+				user.setLastName(lastName);
+				user.setBio(bio);
+				user.setPhoneNumber(phoneNumber);
+				user.setPassword(newPassword);
+			}
+			
+			con.close();
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return user;
+	}
 }

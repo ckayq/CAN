@@ -49,12 +49,7 @@
 		</div>
 		
 		<div class="spacing">
-			<div class="row">
-				<h1>
-					Hello, <% out.println(user.getFirstName()); %>
-				</h1>
-			</div>
-				<a href="CreatePostPage.jsp"><button class="button" type="button">Create Post</button></a>
+			<a href="CreatePostPage.jsp"><button class="button" type="button">Create Post</button></a>
 		</div><br>
 		<h1 class="spacing"> Recent Posts </h1>
 		<div class="content clearfix">

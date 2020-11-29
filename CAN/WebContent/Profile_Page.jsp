@@ -21,7 +21,6 @@
 				</label>
 				<label class="logo"><a href="Main_Page.jsp">CAN</a></label>
 				<ul>
-					<li><h3>Hi,</h3></li>
 					<li><a href="Main_Page.jsp">Home</a></li>
 					<li><a href="Profile_Page.jsp">Profile</a></li>
 					<li><a href="store_page.jsp">Store</a></li>
@@ -31,6 +30,7 @@
 		</div>
 		
 		<div class="container">
+			<h1>${settingsUpdatedMessage}</h1>
 			<div class="profile-header">
 				<div class="profile-img">
 					<img src="images/beaver.jpg" width="200">

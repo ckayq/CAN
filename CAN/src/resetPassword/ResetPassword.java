@@ -32,8 +32,8 @@ public class ResetPassword extends HttpServlet {
 		
 		user = userDAO.resetUserPassword(email, firstName, lastName, phoneNumber, newPassword);
 		
-		if(user.getEmail() !=null && user.getFirstName() !=null && user.getLastName() != null && user.getPhoneNumber() != null){
-			if(email!=null && firstName!=null && lastName!=null && phoneNumber!=null && newPassword!=null) {
+		if(user.getEmail() != null && user.getFirstName() != null && user.getLastName() != null && user.getPhoneNumber() != null){
+			if(email != null && firstName != null && lastName != null && phoneNumber != null && newPassword != null) {
 				if(user.getEmail().equals(email) && user.getFirstName().equals(firstName) && user.getLastName().equals(lastName) && user.getPhoneNumber().equals(phoneNumber)) {
 					request.setAttribute("passwordChangegMessage", "You have successfully changed your password");
 					request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
