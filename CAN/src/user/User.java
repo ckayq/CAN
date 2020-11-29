@@ -6,8 +6,9 @@ public class User {
 	private String email;
 	private String phoneNumber;
 	private String password;
+	private double coins;
+	private String bio;
 	
-
 	public User() {
 		super();
 	}
@@ -61,4 +62,21 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public double getCoins() {
+		return coins;
+	}
+
+	public void setCoins(double coins) {
+		this.coins = coins;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+	
 }

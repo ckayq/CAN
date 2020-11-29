@@ -41,7 +41,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User getUser(String email, String password, String firstName) {
+	public User getUser(String email, String password, String firstName, String lastName, double coins, String bio) {
 		User user = new User();
 		
 		try {
@@ -58,8 +58,12 @@ public class UserDAOImpl implements UserDAO {
 			
 			while(resultSet.next()) {
 				user.setEmail(resultSet.getString(1));
-				user.setPassword(resultSet.getString(2));
+				user.setPhoneNumber(resultSet.getString(2));
 				user.setFirstName(resultSet.getString(3));
+				user.setLastName(resultSet.getString(4));
+				user.setBio(resultSet.getString(5));
+				user.setCoins(Double.parseDouble(resultSet.getString(6)));
+				user.setPassword(resultSet.getString(7));
 			}
 			
 			con.close();
@@ -90,9 +94,9 @@ public class UserDAOImpl implements UserDAO {
 			
 			while(resultSet.next()) {
 				user.setEmail(resultSet.getString(1));
+				user.setPhoneNumber(resultSet.getString(2));
 				user.setFirstName(resultSet.getString(3));
 				user.setLastName(resultSet.getString(4));
-				user.setPhoneNumber(resultSet.getString(2));
 			}
 			
 			String updateStmt = "UPDATE user SET Password=? WHERE Email_ID=? AND FirstName=? AND LastName=? AND PhoneNumber=?;";
