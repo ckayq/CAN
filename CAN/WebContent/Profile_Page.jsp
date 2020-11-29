@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
     
 <!DOCTYPE html>
 <html>
@@ -67,7 +66,9 @@
 							
 							<div class="profile-btn">
 								<button class="createbtn">Create Post</button>
-								<button class="edit_accountbtn">Edit Account Details</button>
+								<a href="EditAccountDetails.jsp">
+									<button class="edit_accountbtn">Edit Account Details</button>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -127,13 +128,7 @@
 						</div>
 					</div>
 				</div>
-			
-		</div>
-		
-		
-		
-		
-		
+		</div>	
 	</body>
 </html>
 
