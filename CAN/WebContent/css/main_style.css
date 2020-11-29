@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 
 body {
-	background-color:#f1f1f1;
+	background-color:#d8ecf3;
 }
 
 .clearfix::after{
@@ -10,42 +10,64 @@ body {
 	clear:both;
 }
 
-.btn {
-	float:left;
-	padding: .5rem 1rem;
-	background: #006669;
+.calendar {
+	background: #f89406 none repeat scroll 0 0;
+	height:70px;
+	left:0;
+	position:relative;
+	text-align:center;
+	top:0;
+	width:70px;
+	padding:10px;
 	color:white;
-	border: 1px solid transparent;
-	border-radius:.25rem;
-}
-
-.btn:hover{
-	color:white !important;
-	background:#005255;
 }
 
 .content {
-	width: 90%;
-	margin: 30px auto 30px;
+	width:97%;
+	margin:20px auto 20px;
+	display:table;
+	background-color:#d8ecf3;
+	
+}
+
+
+.content .main-content {
+	width:80%;
+	float:left;
 }
 
 .content .main-content .post{
+	box-shadow: 0px 5px 14px rgba(0,0,0,0.1);
 	width:95%;
-	height:270px;
+	height:290px;
 	margin: 10px auto;
-	border-radius:5px;
+	border-radius:15px;
 	background:white;
 	position:relative;
+}
+
+.content .main-content .holder{
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.content .main-content .post .post-title{
+	margin:30px auto 30px;
+}
+
+.content .main-content .post .post-review{
+	padding-left:10px;
 }
 
 .content .main-content .post .read-more{
 	position:absolute;
 	bottom:10px;
 	right:10px;
-	border:1px solid #005255;
+	border:1px solid white;
 	background:transparent;
 	border-radius:0px;
 	color:#005255 !important;
+	margin:30px auto 30px;
 }
 
 .content .main-content .post .read-more:hover{
@@ -54,28 +76,28 @@ body {
 	transition: .25s;
 }
 
+.content .sidebar {
+	width:20%;
+	float:left;
+	border:4px solid white;
+	height:480px;
+}
+
 .content .main-content .recent-post-title {
 	margin:20px;
+	padding:25px;
+	color: #3ca3c3;
+	border: 4px solid white;
 }
 
-.button {
-  background-color: powderblue;
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.author {
-	font-size: 14px;
-	
-}
-
-.spacing {
-	margin-left:2em
+.main-content input {
+  float: right;
+  padding-left:100px;
+  padding-top:10px;
+  padding-bottom:10px;
+  margin-top: 45px;
+  margin-right: 50px;
+  font-size: 17px;
+  border: 2px solid #8ac8db;
+  border-radius: 25px;
 }
