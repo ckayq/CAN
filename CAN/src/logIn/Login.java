@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
 
 		User user = new User();
 		
-		user = userDAO.getUser(email, password, user.getFirstName());
+		user = userDAO.getUser(email, password, user.getFirstName(), user.getLastName(), user.getCoins(), user.getBio());
 		
 		if(submitBtn.equals("Login") && user!=null && user.getEmail()!=null && user.getPassword()!=null) {
 			HttpSession session = request.getSession();
