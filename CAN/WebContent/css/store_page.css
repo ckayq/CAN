@@ -110,7 +110,7 @@ h2::after {
 	margin-right: 5px;
 }
 .carousel .item-price span {
-	color: black;
+	color: green;
 	font-size: 110%;
 }
 .carousel .carousel-control.left i {
