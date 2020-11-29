@@ -29,9 +29,8 @@ public class ImageDAOImpl {
 				String productName = resultSet.getString("ProductName");
 				String imageURL = resultSet.getString("ImageURL");
 				int unitPrice = resultSet.getInt("UnitPrice");
-				int StockAmt = resultSet.getInt("StockAmt");
-				
-				Image image = new Image(imageID, productName, imageURL, unitPrice, StockAmt);
+	
+				Image image = new Image(imageID, productName, imageURL, unitPrice);
 				
 				
 				imageList.add(image);

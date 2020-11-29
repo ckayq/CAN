@@ -11,14 +11,13 @@ public class Image {
 		super();
 	}
 	
-	public Image(int imageID, String productName, String imageURL, int unitPrice, int imageStock ) {
+	public Image(int imageID, String productName, String imageURL, int unitPrice) {
 		super();
 		
 		this.setImageID(imageID);
 		this.setProductName(productName);
 		this.setImageURL(imageURL);
 		this.setUnitPrice(unitPrice);
-		this.setImageStock(imageStock);
 	}
 
 	public String getImageURL() {
@@ -51,14 +50,6 @@ public class Image {
 
 	public void setUnitPrice(int unitPrice) {
 		this.unitPrice = unitPrice;
-	}
-
-	public int getImageStock() {
-		return imageStock;
-	}
-
-	public void setImageStock(int imageStock) {
-		this.imageStock = imageStock;
 	}
 	
 	

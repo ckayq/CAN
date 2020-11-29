@@ -75,8 +75,7 @@
 										</div>
 										<div class="thumb-content">
 											<h4><% out.print(image.getProductName());%></h4>
-											<p class="item-price"> <span>Price: <% out.print(String.valueOf(image.getUnitPrice())); %> coins</span></p>
-											<p class="item-price"> <span>Stock: <% out.print(String.valueOf(image.getImageStock())); %></span></p>
+											<p class="item-price"> Price: <span><% out.print(String.valueOf(image.getUnitPrice())); %></span> coins</p>
 											<a href="#" class="btn btn-primary">Buy</a>
 										</div>						
 									</div>
@@ -120,7 +119,7 @@
 										</div>
 										<div class="thumb-content">
 											<h4><% out.print(image.getProductName());%></h4>
-											<p class="item-price"> <span><%out.println(image.getUnitPrice()); %> coins</span></p>
+											<p class="item-price"> <span><%out.println(image.getUnitPrice()); %></span> coins</p>
 											<a href="#" class="btn btn-primary">Buy</a>
 										</div>						
 									</div>
