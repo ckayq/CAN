@@ -146,7 +146,7 @@ button.createbtn:hover {
 }
 
 .profile-body {
-	width:810px;
+	width: 100%;
 	background-color: #B9DEED ;
 	box-shadow:0px 3px 5px rgba(0,0,0,0.2);
 	padding:20px 30px 60px;
@@ -156,17 +156,6 @@ button.createbtn:hover {
 	border-radius: 25px;
 }
 
-
-.profile-search input{
-  	padding-left:100px;
-  	padding-top:10px;
-  	padding-bottom:10px;
-  	margin-right: 50px;
-  	font-size: 17px;
-  	border: 2px solid #8ac8db;
-  	border-radius: 25px;
-}
-
 .profile-body p{
 	display:relative;
 	margin-bottom:7px;
@@ -174,8 +163,6 @@ button.createbtn:hover {
 	font-size:24px;
 	padding:20px 30px 30px 30px;
 }
-
-
 
 @media(max-width:1100px){
 	.profile-side{
@@ -251,8 +238,6 @@ button.createbtn:hover {
 	
 	
 }
-
-
 
 .rightcolumn {
 	float:left;
