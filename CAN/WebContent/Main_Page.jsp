@@ -9,7 +9,6 @@
 <%@ page import="dbConnection.ConnectionProvider" %>
     
 <%
-
     User user = (User) session.getAttribute("currentUser");
 
     if (user == null) {
@@ -69,8 +68,8 @@
 					    <div class="card">
 					      <div class="card-body" style="background-color:powderblue;">
 					        <h5 class="card-title" style="font-size:20px"> <% out.println(post.getPostTitle()); %> </h5>
-					        <p class="card-text" style="font-size:12px" style="color:gray;"> Author: <% out.println(post.getPostAuthorEmail()); %> </p>
 					        <p class="card-text" style="font-size:24px"> <% out.println(post.getPostBody()); %> </p>
+   					        <p class="card-text" style="font-size:12px" style="color:gray;"> Author: <% out.println(post.getPostAuthorEmail()); %> </p>
 					        <p class="card-text" style="font-size:12px" style="color:gray;"> Posted on: <% out.println(post.getPostCreationDate()); %> </p>
 					      </div>
 					      <div class="card-footer">

@@ -3,8 +3,12 @@ package user;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import dbConnection.ConnectionProvider;
+import post.Post;
 
 public class UserDAOImpl implements UserDAO {
 
@@ -39,7 +43,7 @@ public class UserDAOImpl implements UserDAO {
 		
 		return status;
 	}
-
+	
 	@Override
 	public User getUser(String email, String password, String firstName, String lastName, double coins, String bio) {
 		User user = new User();
@@ -72,6 +76,191 @@ public class UserDAOImpl implements UserDAO {
 		}
 		
 		return user;
+	}
+	
+	@Override
+	public String getUserFirstName(String email) {
+		User user = new User();
+		
+		String firstName = "";
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String selectStmt = "SELECT FirstName FROM user WHERE Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(selectStmt);
+			
+			preparedStmt.setString(1, email);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			while(resultSet.next()) {
+				user.setFirstName(resultSet.getString(1));
+			}
+			
+			firstName = user.getFirstName();
+			
+			con.close();
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return firstName;
+	}
+	
+	@Override
+	public String getUserLastName(String email) {
+		User user = new User();
+		
+		String lastName = "";
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String selectStmt = "SELECT LastName FROM user WHERE Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(selectStmt);
+			
+			preparedStmt.setString(1, email);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			while(resultSet.next()) {
+				user.setLastName(resultSet.getString(1));
+			}
+			
+			lastName = user.getLastName();
+			
+			con.close();
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return lastName;
+	}
+	
+	@Override
+	public String getUserCoins(String email) {
+		User user = new User();
+		
+		double coins = 0;
+		String fmtCoins = "";
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String selectStmt = "SELECT Coins FROM user WHERE Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(selectStmt);
+			
+			preparedStmt.setString(1, email);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			while(resultSet.next()) {
+				user.setCoins(Double.parseDouble(resultSet.getString(1)));
+			}
+			
+			coins = user.getCoins();
+			
+			fmtCoins = String.valueOf(coins);
+			
+			con.close();
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return fmtCoins;
+	}
+	
+	@Override
+	public User getUserBio(String email) {
+		User user = new User();
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String selectStmt = "SELECT Bio FROM user WHERE Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(selectStmt);
+			
+			preparedStmt.setString(1, email);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			while(resultSet.next()) {
+				user.setBio(resultSet.getString(1));
+			}
+			
+			con.close();
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+
+		return user;
+	}
+	
+	@Override
+	public User getUserPhoneNumber(String email) {
+		User user = new User();
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String selectStmt = "SELECT PhoneNumber FROM user WHERE Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(selectStmt);
+			
+			preparedStmt.setString(1, email);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			while(resultSet.next()) {
+				user.setPhoneNumber(resultSet.getString(1));
+			}
+			
+			con.close();
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return user;
+	}
+	
+	// Getting all the user's posts
+	public List<Post> getUserPosts(String email) {
+		List<Post> postList = new ArrayList<>();
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String getStmt = "SELECT * FROM post WHERE Email_ID=? ORDER BY CreationDate ASC";
+			
+			preparedStmt = con.prepareStatement(getStmt);
+			
+			preparedStmt.setString(1, email);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			while(resultSet.next()) {
+				int postID = resultSet.getInt("PostID");
+				String postAuthorEmail = resultSet.getString("Email_ID");
+				Timestamp postCreationDate = resultSet.getTimestamp("CreationDate");
+				String postTitle = resultSet.getString("PostTitle");
+				String postBody = resultSet.getString("PostBody");
+				
+				Post post = new Post(postID, postAuthorEmail, postCreationDate, postTitle, postBody);
+				
+				postList.add(post);
+			}
+			
+			con.close();
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		return postList;
 	}
 
 	@Override
