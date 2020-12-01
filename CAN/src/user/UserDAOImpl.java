@@ -229,13 +229,14 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	// Getting all the user's posts
+	@Override
 	public List<Post> getUserPosts(String email) {
 		List<Post> postList = new ArrayList<>();
 		
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String getStmt = "SELECT * FROM post WHERE Email_ID=? ORDER BY CreationDate ASC";
+			String getStmt = "SELECT * FROM post WHERE Email_ID=? ORDER BY CreationDate DESC";
 			
 			preparedStmt = con.prepareStatement(getStmt);
 			

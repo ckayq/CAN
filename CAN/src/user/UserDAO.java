@@ -1,5 +1,8 @@
 package user;
 
+import java.util.List;
+import post.Post;
+
 public interface UserDAO {
 	public int insertUser(User user);
 	
@@ -14,6 +17,8 @@ public interface UserDAO {
 	public String getUserLastName(String email);
 	
 	public String getUserCoins(String email);
+	
+	public List<Post> getUserPosts(String email);
 	
 	public User resetUserPassword(String email, String firstName, String lastName, String phoneNumber, String newPassword);
 	
