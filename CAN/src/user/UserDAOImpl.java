@@ -22,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String insertStmt = "INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?);";
+			String insertStmt = "INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 			
 			preparedStmt = con.prepareStatement(insertStmt);
 			
@@ -33,6 +33,7 @@ public class UserDAOImpl implements UserDAO {
 			preparedStmt.setString(5, "");
 			preparedStmt.setDouble(6, 0);
 			preparedStmt.setString(7, user.getPassword());
+			preparedStmt.setString(8, "none");
 			
 			status = preparedStmt.executeUpdate();
 			
