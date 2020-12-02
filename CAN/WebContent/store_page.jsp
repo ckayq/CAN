@@ -28,7 +28,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>Store Page</title>
+		<title>Store</title>
 	
 		<link rel="stylesheet" href="css/store_page.css">
 		<link rel="stylesheet" href="css/nav_style.css">
@@ -56,8 +56,8 @@
 			</nav>
 		</div>
 			
-		<h2>Store <b>Page</b></h2><br>
-		
+		<h2>Store</h2>
+		<br>
 		<div class="container" style="background-color:white;">
 				<div class="row" >
 					<div class="col-md-12" >
@@ -118,10 +118,8 @@
 			
 						<div class="carousel-inner">
 							<div class="item active">					
-							
 							<div class="row">
 								<%
-								
 									for(Image image : imageList)
 									{ %>
 										<% if(image.getImageID() == 9 || image.getImageID() == 10 || image.getImageID() == 11 || 
@@ -134,35 +132,33 @@
 													<div class="thumb-content">
 														<h4><% out.print(image.getProductName());%></h4>
 														<p class="item-price"> <span><%out.println(image.getUnitPrice()); %></span> coins</p>
-														<h5> ${statusBoughtMessage} </h5>
-														<h5> ${notEnoughCoinsMessage} </h5>
 														<form action="Buy" method="post">
 													        <input type="submit" name="submit" value="Buy" class="btn btn-primary btn-block">
 															<input type="hidden" name="statusID" value="<% out.println(image.getImageID()); %>">
 															<input type="hidden" name="statusPrice" value="<% out.println(image.getUnitPrice()); %>">
 															<input type="hidden" name="statusURL" value="<% out.println(image.getImageURL()); %>">
-															<input type="hidden" name="email" value="<% String email = userSession.getEmail();
-																											out.println(email); %>">
+															<input type="hidden" name="email" value="
+																									<% String email = userSession.getEmail();
+																										out.println(email); %>">
 															<input type="hidden" name="userCoins" value="
 																										<% String coins = userDAO.getUserCoins(userSession.getEmail());
-																										out.println(coins);  %>"
-															>
+																											out.println(coins);  %>">
 														</form>
 													</div>						
 												</div>
 											</div>
 											<% } %>
 									<% } 
-								
 									%>	
 								</div>
 							</div>
+							<h5> ${statusBoughtMessage} </h5>
+							<h5> ${notEnoughCoinsMessage} </h5>
+							<h5> ${alreadyHasProductMessage} </h5>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>	
-		
-		
 	</body>
 </html>                                		                             		
