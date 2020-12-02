@@ -28,6 +28,10 @@
 		
 		<link rel="stylesheet" href="css/nav_style.css">
 		<link rel="stylesheet" href="css/profile_style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		
+		<script src="https://kit.fontawesome.com/0e28daf7be.js" crossorigin="anonymous"></script>
+		
 	</head>
 	<body>
 		<div class="topnav">
@@ -116,22 +120,23 @@
 				</div>
 				<div class="right-side">
 					<div class="profile-body">	
-						<h1 class="spacing">My Posts</h1>	
+						<h1 class="spacing" style="color:white">My Posts</h1>	
 						<div class="row">
 							<%
 								List<Post> postList = userDAO.getUserPosts(userSession.getEmail());
 								
 								for(Post post : postList) 
 								{ %>
-									
-									<div class="col-sm-3 mt-4">
-									    <div class="card">
-									      <div class="card-body" style="background-color:powderblue;">
-									        <h5 class="card-title" style="font-size:20px"> <% out.println(post.getPostTitle()); %> </h5>
-									        <p class="card-text" style="font-size:24px"> <% out.println(post.getPostBody()); %> </p>
-				   					        <p class="card-text" style="font-size:12px" style="color:gray;"> Author: <% out.println(post.getPostAuthorEmail()); %> </p>
-									        <p class="card-text" style="font-size:12px" style="color:gray;"> Posted on: <% out.println(post.getPostCreationDate()); %> </p>
-									      </div>
+									<div class="holder">
+									    <div class="post">
+									    	<div class="post-review" style="background-color:white;">
+												<i class="far calendar"><% out.println(post.getPostCreationDate()); %> </i>
+										        <h1 class="post-title" > <% out.println(post.getPostTitle()); %> </h1>
+										        <i class="far fa-user" > Author: <% out.println(post.getPostAuthorEmail()); %> </i>
+										        &nbsp;
+										        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
+										        
+									      	</div>
 										</div>
 									</div>
 								<% }

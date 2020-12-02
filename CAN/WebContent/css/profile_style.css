@@ -19,14 +19,15 @@ body{
 
 .calendar {
 	background: #f89406 none repeat scroll 0 0;
-	height:70px;
-	left:0;
+	height:50px;
 	position:relative;
 	text-align:center;
-	top:0;
-	width:70px;
+	width:160px;
 	padding:10px;
 	color:white;
+	float:right;
+	border-radius:15px 50px;
+	margin-right:10px;
 }
 
 .profile-header {
@@ -146,7 +147,7 @@ button.createbtn:hover {
 }
 
 .profile-body {
-	width: 100%;
+	width:730px;
 	background-color: #B9DEED ;
 	box-shadow:0px 3px 5px rgba(0,0,0,0.2);
 	padding:20px 30px 60px;
@@ -163,6 +164,8 @@ button.createbtn:hover {
 	font-size:24px;
 	padding:20px 30px 30px 30px;
 }
+
+
 
 @media(max-width:1100px){
 	.profile-side{
@@ -239,51 +242,41 @@ button.createbtn:hover {
 	
 }
 
-.rightcolumn {
-	float:left;
-	width:75%;
-	padding-left:20px;
-	padding-right:20px;
-}
 
-.leftcolumn {
-	float:left;
-	width:25%;
-	padding-left:20px;
-}
-
-.card {
-	background-color:white;
-	padding:20px;
-	margin-top:20px;
-}
-
-.row:after{
-	content:"";
-	display:table;
-	clear:both;
-}
-
-.profile-posts .post{
+.holder .post{
 	overflow: auto;
 	box-shadow: 0px 5px 14px rgba(0,0,0,0.1);
-	width:95%;
+	width:680px;
 	height:290px;
 	margin: 30px 2px 20px 2px;
 	border-radius:15px;
 	background:white;
 	position:relative;
 	word-wrap: break-word;
+	
 }
 
-.profile-posts .post .post-title{
-	margin:30px auto 30px;
+.holder .post .post-title{
+	margin:15px auto 5px;
+	color:gray;
+	font-size:50px;
 }
 
-.profile-posts .post .post-review{
+.post .post-review{
 	padding-left:20px;
 }
 
-.profile-posts .post p{
-	padding-left:20px;
+.post p{
+	margin-top:30px;
+	padding-left:5px;
+}
+
+.button {
+  background-color: powderblue;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
 }
