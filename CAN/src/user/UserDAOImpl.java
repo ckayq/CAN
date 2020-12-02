@@ -305,6 +305,7 @@ public class UserDAOImpl implements UserDAO {
 			con = ConnectionProvider.getConnection();
 			
 			String fmtEmail = email.trim();
+			String userStatus = "";
 			
 			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?";
 			
@@ -332,29 +333,37 @@ public class UserDAOImpl implements UserDAO {
 				preparedStmt.setString(4, fmtEmail);
 				
 				preparedStmt.executeUpdate();
-			} else {
-				System.out.println("Found");
-			}
-			
-//			String updateStmt = "UPDATE user SET Status=?";
-			
-			String selectStmt = "SELECT * FROM product WHERE ProductID=?;";
-			
-			preparedStmt = con.prepareStatement(selectStmt);
-			
-			preparedStmt.setInt(1, statusID);
-			
-			ResultSet resultSet = preparedStmt.executeQuery();
-			
-			String userStatus = "";
-			
-			while(resultSet.next()) {
-				user.setStatus(resultSet.getString(1));
 				
-				userStatus = user.getStatus();
+				String selectStmt = "SELECT ProductName FROM product WHERE ProductID=?;";
+				
+				preparedStmt = con.prepareStatement(selectStmt);
+				
+				preparedStmt.setInt(1, statusID);
+				
+				ResultSet resultSet = preparedStmt.executeQuery();
+				
+				while(resultSet.next()) {
+					user.setStatus(resultSet.getString(1));
+					
+					userStatus = user.getStatus();
+				}
+				
+				String updateStmt = "UPDATE user SET Status=? WHERE Email_ID=?";
+				
+				preparedStmt = con.prepareStatement(updateStmt);
+				
+				preparedStmt.setString(1, userStatus);
+				preparedStmt.setString(2, fmtEmail);
+				
+				int result = preparedStmt.executeUpdate();
+				
+				if(result > 0) {
+					user.setStatus(userStatus);
+					System.out.println("User purchased " + userStatus + " status!");
+				}
+			} else {
+				System.out.println("User already has this status!");
 			}
-			
-			//System.out.println(userStatus);
 			
 			con.close();
 		} catch(Exception ex) {

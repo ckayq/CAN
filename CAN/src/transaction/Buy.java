@@ -35,13 +35,9 @@ public class Buy extends HttpServlet {
 			
 			request.setAttribute("statusBoughtMessage", "You have purchased the status!");
 			request.getRequestDispatcher("store_page.jsp").forward(request, response);
-			
-			System.out.print("If here");
 		} else {
 			request.setAttribute("notEnoughCoinsMessage", "You do not have enough coins to buy this product!");
 			request.getRequestDispatcher("store_page.jsp").forward(request, response);
-			
-			System.out.print("Else here");
 		}
 	}
 
