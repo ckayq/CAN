@@ -24,6 +24,8 @@ public interface UserDAO {
 	
 	public User userBuysStatus(String email, int statusID, int statusPrice, String statusURL, double userCoins);
 	
+	public User userBuysAvatar(String email, int avatarID, int avatarPrice, String avatarURL, double userCoins);
+	
 	public User resetUserPassword(String email, String firstName, String lastName, String phoneNumber, String newPassword);
 	
 	public User updateAccountDetails(String email, String firstName, String lastName, String phoneNumber, String bio,String newPassword);

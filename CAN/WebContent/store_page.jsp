@@ -62,6 +62,9 @@
 				<div class="row" >
 					<div class="col-md-12" >
 						<h1> Avatar </h1>
+						<h5> ${avatarBoughtMessage} </h5>
+						<h5> ${notEnoughCoinsMessage} </h5>	
+						<h5> ${alreadyHasProductMessage} </h5>
 						<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 						<ol class="carousel-indicators">
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -89,7 +92,18 @@
 											<div class="thumb-content">
 												<h4><% out.print(image.getProductName());%></h4>
 												<p class="item-price"> Price: <span><% out.print(String.valueOf(image.getUnitPrice())); %></span> coins</p>
-												<a href="#" class="btn btn-primary">Buy</a>
+												<form action="Buy" method="post">
+													<input type="hidden" name="avatarID" value="<% out.println(image.getImageID()); %>">
+													<input type="hidden" name="avatarPrice" value="<% out.println(image.getUnitPrice()); %>">
+													<input type="hidden" name="avatarURL" value="<% out.println(image.getImageURL()); %>">
+													<input type="hidden" name="email" value="
+																							<% String email = userSession.getEmail();
+																								out.println(email); %>">
+													<input type="hidden" name="userCoins" value="
+																								<% String coins = userDAO.getUserCoins(userSession.getEmail());
+																									out.println(coins);  %>">
+											        <input type="submit" name="buyAvatar" value="Buy" class="btn btn-primary btn-block">
+												</form>
 											</div>						
 										</div>
 									</div>
@@ -109,6 +123,9 @@
 				<div class="row" >
 					<div class="col-md-12" >
 						<h1> Status </h1>
+						<h5> ${statusBoughtMessage} </h5>
+						<h5> ${notEnoughCoinsMessage} </h5>	
+						<h5> ${alreadyHasProductMessage} </h5>
 						<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 						<ol class="carousel-indicators">
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -133,7 +150,6 @@
 														<h4><% out.print(image.getProductName());%></h4>
 														<p class="item-price"> <span><%out.println(image.getUnitPrice()); %></span> coins</p>
 														<form action="Buy" method="post">
-													        <input type="submit" name="submit" value="Buy" class="btn btn-primary btn-block">
 															<input type="hidden" name="statusID" value="<% out.println(image.getImageID()); %>">
 															<input type="hidden" name="statusPrice" value="<% out.println(image.getUnitPrice()); %>">
 															<input type="hidden" name="statusURL" value="<% out.println(image.getImageURL()); %>">
@@ -143,6 +159,7 @@
 															<input type="hidden" name="userCoins" value="
 																										<% String coins = userDAO.getUserCoins(userSession.getEmail());
 																											out.println(coins);  %>">
+													        <input type="submit" name="buyStatus" value="Buy" class="btn btn-primary btn-block">
 														</form>
 													</div>						
 												</div>
@@ -152,9 +169,6 @@
 									%>	
 								</div>
 							</div>
-							<h5> ${statusBoughtMessage} </h5>
-							<h5> ${notEnoughCoinsMessage} </h5>
-							<h5> ${alreadyHasProductMessage} </h5>
 						</div>
 					</div>
 				</div>

@@ -377,6 +377,84 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	public User userBuysAvatar(String email, int avatarID, int avatarPrice, String avatarURL, double userCoins) {
+		User user = new User();
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String fmtEmail = email.trim();
+			String userStatus = "";
+			
+			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(checkStmt);
+			
+			preparedStmt.setInt(1, avatarID);
+			preparedStmt.setString(2, fmtEmail);
+			
+			ResultSet isBought = preparedStmt.executeQuery();
+			
+			int count = 0;
+			
+			while(isBought.next()) {
+				count = isBought.getInt(1);
+			} 
+			
+			if(count == 0) {
+				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ImageURL, Email_ID) VALUES(?, ?, ?, ?)";
+				
+				preparedStmt = con.prepareStatement(insertStmt);
+				
+				preparedStmt.setInt(1, avatarID);
+				preparedStmt.setInt(2, avatarPrice);
+				preparedStmt.setString(3, avatarURL);
+				preparedStmt.setString(4, fmtEmail);
+				
+				preparedStmt.executeUpdate();
+				
+//				String selectStmt = "SELECT ProductName FROM product WHERE ProductID=?;";
+//				
+//				preparedStmt = con.prepareStatement(selectStmt);
+//				
+//				preparedStmt.setInt(1, avatarID);
+//				
+//				ResultSet resultSet = preparedStmt.executeQuery();
+//				
+//				while(resultSet.next()) {
+//					user.setStatus(resultSet.getString(1));
+//					
+//					userStatus = user.getStatus();
+//				}
+//				
+				String updateStmt = "UPDATE user SET Coins=? WHERE Email_ID=?";
+				
+				double updatedUserCoins = userCoins - avatarPrice;
+				
+				preparedStmt = con.prepareStatement(updateStmt);
+				
+				preparedStmt.setDouble(1, updatedUserCoins);
+				preparedStmt.setString(2, fmtEmail);
+				
+				int result = preparedStmt.executeUpdate();
+				
+				if(result > 0) {
+					//user.setStatus(userStatus);
+					System.out.println("User purchased an avatar!");
+				}
+			} else {
+				System.out.println("User already has this avatar!");
+			}
+			
+			con.close();
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return user;
+	}
+	
+	@Override
 	public User resetUserPassword(String email, String firstName, String lastName, String phoneNumber, String newPassword) {
 		User user = new User();
 		
