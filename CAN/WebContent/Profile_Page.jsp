@@ -60,7 +60,14 @@
 							out.println(firstName + " " + lastName); 
 						%> 
 					</h3>
-					<p class="status">Status: Gold</p>
+					<p class="status">
+						Status: 
+						<%
+							String status = userDAO.getUserStatus(userSession.getEmail());
+							
+							out.println(status); 
+						%>
+					</p>
 				</div>
 				<div class="user-coins">
 					<h3 class="coins" style="color:white">

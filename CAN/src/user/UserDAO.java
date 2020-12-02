@@ -18,7 +18,11 @@ public interface UserDAO {
 	
 	public String getUserCoins(String email);
 	
+	public String getUserStatus(String email);
+	
 	public List<Post> getUserPosts(String email);
+	
+	public User userBuysStatus(String email, int statusID, int statusPrice, double userCoins);
 	
 	public User resetUserPassword(String email, String firstName, String lastName, String phoneNumber, String newPassword);
 	
