@@ -7,6 +7,7 @@ public class User {
 	private String phoneNumber;
 	private String password;
 	private double coins;
+	private String status;
 	private String bio;
 	
 	public User() {
@@ -69,6 +70,15 @@ public class User {
 
 	public void setCoins(double coins) {
 		this.coins = coins;
+	}
+	
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getBio() {

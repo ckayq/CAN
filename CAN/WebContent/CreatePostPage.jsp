@@ -57,8 +57,6 @@
 		    		<h1>Create post</h1>
 		    		
 		    		<form action="CreatePost" method="post">
-		
-		    		    
 		    		    <div class="form-group">
 		    		        <label for="title">Title <span class="require">*</span></label>
 		    		        <input type="text" class="form-control" name="postTitle" />
@@ -80,11 +78,9 @@
 		    		        <button class="btn btn-default">
 		    		            Cancel
 		    		        </button>
-		    		    </div>
-		    		    
+		    		    </div>  
 		    		</form>
 				</div>
-				
 			</div>
 		</div>
 	</body>

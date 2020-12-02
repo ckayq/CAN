@@ -176,6 +176,38 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
+	public String getUserStatus(String email) {
+		User user = new User();
+		
+		String status = "";
+		
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String selectStmt = "SELECT Status FROM user WHERE Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(selectStmt);
+			
+			preparedStmt.setString(1, email);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			while(resultSet.next()) {
+				user.setStatus(resultSet.getString(1));
+			}
+			
+			status = user.getStatus();
+			
+			con.close();
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return status;
+	}
+	
+	@Override
 	public User getUserBio(String email) {
 		User user = new User();
 		
@@ -263,6 +295,50 @@ public class UserDAOImpl implements UserDAO {
 		}
 		
 		return postList;
+	}
+	
+	@Override
+	public User userBuysStatus(String email, int statusID, int statusPrice, double userCoins) {
+		User user = new User();
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String fmtEmail = email.trim();
+			
+			String updateStmt = "UPDATE user_buys_product SET ProductID=?, UnitPrice=?, ImageURL=?, Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(updateStmt);
+			
+			preparedStmt.setInt(1, statusID);
+			preparedStmt.setInt(2, statusPrice);
+			preparedStmt.setString(3, "");
+			preparedStmt.setString(4, email);
+
+			String selectStmt = "SELECT * FROM product WHERE ProductID=?;";
+			
+			preparedStmt = con.prepareStatement(selectStmt);
+			
+			preparedStmt.setInt(1, statusID);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			String userStatus = "";
+			
+			while(resultSet.next()) {
+				user.setStatus(resultSet.getString(1));
+				
+				userStatus = user.getStatus();
+			}
+			
+			System.out.println(userStatus);
+			
+			con.close();
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return user;
 	}
 
 	@Override
