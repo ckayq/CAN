@@ -32,7 +32,7 @@
 				<label for="check" class="checkbtn">
 					<i class="fas fa-bars"></i>
 				</label>
-				<label class="logo"><a href="Main_Page.jsp">CAN</a></label>
+				<label class="logo"><a href="Main_Page.jsp"><img src="images/logo.png" height="75"></a></label>
 				<ul>
 					<li><a href="Main_Page.jsp">Home</a></li>
 					<li><a href="Profile_Page.jsp">Profile</a></li>
@@ -77,11 +77,20 @@
 							    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 							</div>
 					        <input name="newPassword" class="form-control" placeholder="Enter new password" type="password">
-					    </div>                     
+					    </div>  
+					    <div class="form-group">
+   		    		        <label for="ChangeAvatar">Change Avatar</label>
+		    		          <select name="cars" id="cars">
+							    <option value="volvo">Volvo</option>
+							    <option value="saab">Saab</option>
+							    <option value="opel">Opel</option>
+							    <option value="audi">Audi</option>
+							  </select>
+		    		    </div>                     
 					    <div class="form-group">
 					        <input type="submit" name="submit" value="Update" class="btn btn-primary btn-block">
 					    </div> 
-					 	<input type="hidden" class="form-control" name="email" value="<% out.print(user.getEmail()); %>"/>                                                                 
+					 	<input type="hidden" class="form-control" name="email" value="<% out.print(user.getEmail()); %>"/>                                                               
 					</form>
 				</article>
 			</div> 

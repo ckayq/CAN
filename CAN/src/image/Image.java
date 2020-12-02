@@ -3,7 +3,6 @@ package image;
 public class Image {
 	private int imageID;
 	private int unitPrice;
-	private int imageStock;
 	private String productName;
 	private String imageURL;
 
