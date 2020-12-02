@@ -140,8 +140,13 @@
 													        <input type="submit" name="submit" value="Buy" class="btn btn-primary btn-block">
 															<input type="hidden" name="statusID" value="<% out.println(image.getImageID()); %>">
 															<input type="hidden" name="statusPrice" value="<% out.println(image.getUnitPrice()); %>">
-															<input type="hidden" name="email" value="<% out.println(user.getEmail()); %>">
-															<input type="hidden" name="userCoins" value="<% out.println(user.getCoins()); %>">
+															<input type="hidden" name="statusURL" value="<% out.println(image.getImageURL()); %>">
+															<input type="hidden" name="email" value="<% String email = userSession.getEmail();
+																											out.println(email); %>">
+															<input type="hidden" name="userCoins" value="
+																										<% String coins = userDAO.getUserCoins(userSession.getEmail());
+																										out.println(coins);  %>"
+															>
 														</form>
 													</div>						
 												</div>

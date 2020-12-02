@@ -22,6 +22,7 @@ public class Buy extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String statusID = request.getParameter("statusID"); 
 		String statusPrice = request.getParameter("statusPrice"); 
+		String statusURL = request.getParameter("statusURL"); 
 		String userCoins = request.getParameter("userCoins"); 
 		String email = request.getParameter("email");
 		
@@ -29,10 +30,8 @@ public class Buy extends HttpServlet {
 		
 		UserDAO userDAO = new UserDAOImpl();
 		
-		System.out.println(userCoins);
-		
 		if(Double.parseDouble(userCoins) >= Integer.parseInt(statusPrice.trim())) {
-			user = userDAO.userBuysStatus(email, Integer.parseInt(statusID), Integer.parseInt(statusPrice), Double.parseDouble(userCoins));
+			user = userDAO.userBuysStatus(email.trim(), Integer.parseInt(statusID.trim()), Integer.parseInt(statusPrice.trim()), statusURL.trim(), Double.parseDouble(userCoins.trim()));
 			
 			request.setAttribute("statusBoughtMessage", "You have purchased the status!");
 			request.getRequestDispatcher("store_page.jsp").forward(request, response);

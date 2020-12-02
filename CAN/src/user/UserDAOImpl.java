@@ -298,7 +298,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
-	public User userBuysStatus(String email, int statusID, int statusPrice, double userCoins) {
+	public User userBuysStatus(String email, int statusID, int statusPrice, String statusURL, double userCoins) {
 		User user = new User();
 		
 		try {
@@ -306,15 +306,38 @@ public class UserDAOImpl implements UserDAO {
 			
 			String fmtEmail = email.trim();
 			
-			String updateStmt = "UPDATE user_buys_product SET ProductID=?, UnitPrice=?, ImageURL=?, Email_ID=?";
+			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?";
 			
-			preparedStmt = con.prepareStatement(updateStmt);
+			preparedStmt = con.prepareStatement(checkStmt);
 			
 			preparedStmt.setInt(1, statusID);
-			preparedStmt.setInt(2, statusPrice);
-			preparedStmt.setString(3, "");
-			preparedStmt.setString(4, email);
-
+			preparedStmt.setString(2, fmtEmail);
+			
+			ResultSet isBought = preparedStmt.executeQuery();
+			
+			int count = 0;
+			
+			while(isBought.next()) {
+				count = isBought.getInt(1);
+			} 
+			
+			if(count == 0) {
+				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ImageURL, Email_ID) VALUES(?, ?, ?, ?)";
+				
+				preparedStmt = con.prepareStatement(insertStmt);
+				
+				preparedStmt.setInt(1, statusID);
+				preparedStmt.setInt(2, statusPrice);
+				preparedStmt.setString(3, statusURL);
+				preparedStmt.setString(4, fmtEmail);
+				
+				preparedStmt.executeUpdate();
+			} else {
+				System.out.println("Found");
+			}
+			
+//			String updateStmt = "UPDATE user SET Status=?";
+			
 			String selectStmt = "SELECT * FROM product WHERE ProductID=?;";
 			
 			preparedStmt = con.prepareStatement(selectStmt);
@@ -331,7 +354,7 @@ public class UserDAOImpl implements UserDAO {
 				userStatus = user.getStatus();
 			}
 			
-			System.out.println(userStatus);
+			//System.out.println(userStatus);
 			
 			con.close();
 		} catch(Exception ex) {
