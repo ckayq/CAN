@@ -32,8 +32,8 @@ public class UserDAOImpl implements UserDAO {
 			preparedStmt.setString(4, user.getLastName());
 			preparedStmt.setString(5, "");
 			preparedStmt.setDouble(6, 0);
-			preparedStmt.setString(7, user.getPassword());
-			preparedStmt.setString(8, "none");
+			preparedStmt.setString(7, "none");
+			preparedStmt.setString(8, user.getPassword());
 			
 			status = preparedStmt.executeUpdate();
 			
