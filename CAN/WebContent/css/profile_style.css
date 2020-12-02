@@ -146,7 +146,7 @@ button.createbtn:hover {
 }
 
 .profile-body {
-	width: 100%;
+	width: 800px;
 	background-color: #B9DEED ;
 	box-shadow:0px 3px 5px rgba(0,0,0,0.2);
 	padding:20px 30px 60px;
@@ -287,3 +287,8 @@ button.createbtn:hover {
 .profile-posts .post p{
 	padding-left:20px;
 }
+
+.card {
+	padding:0px;
+}
+
