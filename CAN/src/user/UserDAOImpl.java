@@ -348,12 +348,15 @@ public class UserDAOImpl implements UserDAO {
 					userStatus = user.getStatus();
 				}
 				
-				String updateStmt = "UPDATE user SET Status=? WHERE Email_ID=?";
+				String updateStmt = "UPDATE user SET Coins=?, Status=? WHERE Email_ID=?";
+				
+				double updatedUserCoins = userCoins - statusPrice;
 				
 				preparedStmt = con.prepareStatement(updateStmt);
 				
-				preparedStmt.setString(1, userStatus);
-				preparedStmt.setString(2, fmtEmail);
+				preparedStmt.setDouble(1, updatedUserCoins);
+				preparedStmt.setString(2, userStatus);
+				preparedStmt.setString(3, fmtEmail);
 				
 				int result = preparedStmt.executeUpdate();
 				
