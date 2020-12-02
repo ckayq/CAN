@@ -64,13 +64,13 @@
 				for(Post post : postList) 
 				{ %>
 					
-					<div class="col-sm-3 mt-4">
-					    <div class="card">
-					      <div class="card-body" style="background-color:powderblue;">
-					        <h5 class="card-title" style="font-size:20px"> <% out.println(post.getPostTitle()); %> </h5>
-					        <p class="card-text" style="font-size:24px"> <% out.println(post.getPostBody()); %> </p>
-   					        <p class="card-text" style="font-size:12px" style="color:gray;"> Author: <% out.println(post.getPostAuthorEmail()); %> </p>
-					        <p class="card-text" style="font-size:12px" style="color:gray;"> Posted on: <% out.println(post.getPostCreationDate()); %> </p>
+					<div class="holder">
+					    <div class="post">
+					      <div class="post-review" style="background-color:white;">
+					        <i class="far calendar"> <% out.println(post.getPostCreationDate()); %> </i>
+					        <h1 class="post-title"> <% out.println(post.getPostTitle()); %> </h1>
+					        <i class="far fa-user" > Author: <% out.println(post.getPostAuthorEmail()); %> </i>
+					        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
 					      </div>
 					      <div class="card-footer">
 					      <form action="LikePost" method="post">

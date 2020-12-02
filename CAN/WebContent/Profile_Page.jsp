@@ -28,6 +28,10 @@
 		
 		<link rel="stylesheet" href="css/nav_style.css">
 		<link rel="stylesheet" href="css/profile_style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		
+		<script src="https://kit.fontawesome.com/0e28daf7be.js" crossorigin="anonymous"></script>
+		
 	</head>
 	<body>
 		<div class="topnav">
@@ -109,7 +113,7 @@
 				</div>
 				<div class="right-side">
 					<div class="profile-body">	
-						<h1 class="spacing">My Posts</h1>	
+						<h1 class="spacing" style="color:white">My Posts</h1>	
 						<div class="row">
 							<%
 								List<Post> postList = userDAO.getUserPosts(userSession.getEmail());
@@ -118,12 +122,13 @@
 								{ %>
 									<div class="holder">
 									    <div class="post">
-									    	<div class="post-review">
-												<i class="far calendar"> Posted on: <% out.println(post.getPostCreationDate()); %> </i>
+									    	<div class="post-review" style="background-color:white;">
+												<i class="far calendar"><% out.println(post.getPostCreationDate()); %> </i>
 										        <h1 class="post-title" > <% out.println(post.getPostTitle()); %> </h1>
 										        <i class="far fa-user" > Author: <% out.println(post.getPostAuthorEmail()); %> </i>
 										        &nbsp;
 										        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
+										        
 									      	</div>
 										</div>
 									</div>
