@@ -32,7 +32,7 @@ public class UserDAOImpl implements UserDAO {
 			preparedStmt.setString(4, user.getLastName());
 			preparedStmt.setString(5, "This user has not set a bio");
 			preparedStmt.setDouble(6, 0);
-			preparedStmt.setString(7, "none");
+			preparedStmt.setString(7, "Default");
 			preparedStmt.setString(8, user.getPassword());
 			preparedStmt.setString(9, "images/default.jpg");
 			
@@ -89,7 +89,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String selectStmt = "SELECT FirstName FROM user WHERE Email_ID=?";
+			String selectStmt = "SELECT FirstName FROM user WHERE Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(selectStmt);
 			
@@ -120,7 +120,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String selectStmt = "SELECT LastName FROM user WHERE Email_ID=?";
+			String selectStmt = "SELECT LastName FROM user WHERE Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(selectStmt);
 			
@@ -152,7 +152,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String selectStmt = "SELECT Coins FROM user WHERE Email_ID=?";
+			String selectStmt = "SELECT Coins FROM user WHERE Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(selectStmt);
 			
@@ -186,7 +186,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String selectStmt = "SELECT Status FROM user WHERE Email_ID=?";
+			String selectStmt = "SELECT Status FROM user WHERE Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(selectStmt);
 			
@@ -215,7 +215,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String selectStmt = "SELECT Bio FROM user WHERE Email_ID=?";
+			String selectStmt = "SELECT Bio FROM user WHERE Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(selectStmt);
 			
@@ -242,7 +242,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String selectStmt = "SELECT PhoneNumber FROM user WHERE Email_ID=?";
+			String selectStmt = "SELECT PhoneNumber FROM user WHERE Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(selectStmt);
 			
@@ -270,7 +270,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String getStmt = "SELECT * FROM post WHERE Email_ID=? ORDER BY CreationDate DESC";
+			String getStmt = "SELECT * FROM post WHERE Email_ID=? ORDER BY CreationDate DESC;";
 			
 			preparedStmt = con.prepareStatement(getStmt);
 			
@@ -308,7 +308,7 @@ public class UserDAOImpl implements UserDAO {
 			String fmtEmail = email.trim();
 			String userStatus = "";
 			
-			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?";
+			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(checkStmt);
 			
@@ -324,7 +324,7 @@ public class UserDAOImpl implements UserDAO {
 			} 
 			
 			if(count == 0) {
-				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ImageURL, Email_ID) VALUES(?, ?, ?, ?)";
+				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ImageURL, Email_ID) VALUES(?, ?, ?, ?);";
 				
 				preparedStmt = con.prepareStatement(insertStmt);
 				
@@ -349,7 +349,7 @@ public class UserDAOImpl implements UserDAO {
 					userStatus = user.getStatus();
 				}
 				
-				String updateStmt = "UPDATE user SET Coins=?, Status=? WHERE Email_ID=?";
+				String updateStmt = "UPDATE user SET Coins=?, Status=? WHERE Email_ID=?;";
 				
 				double updatedUserCoins = userCoins - statusPrice;
 				
@@ -387,7 +387,7 @@ public class UserDAOImpl implements UserDAO {
 			String fmtEmail = email.trim();
 			//String userStatus = "";
 			
-			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?";
+			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(checkStmt);
 			
@@ -403,7 +403,7 @@ public class UserDAOImpl implements UserDAO {
 			} 
 			
 			if(count == 0) {
-				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ImageURL, Email_ID) VALUES(?, ?, ?, ?)";
+				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ImageURL, Email_ID) VALUES(?, ?, ?, ?);";
 				
 				preparedStmt = con.prepareStatement(insertStmt);
 				
@@ -414,7 +414,7 @@ public class UserDAOImpl implements UserDAO {
 				
 				preparedStmt.executeUpdate();
 				
-				String updateStmt = "UPDATE user SET Coins=? WHERE Email_ID=?";
+				String updateStmt = "UPDATE user SET Coins=? WHERE Email_ID=?;";
 				
 				double updatedUserCoins = userCoins - avatarPrice;
 				
@@ -498,7 +498,7 @@ public class UserDAOImpl implements UserDAO {
 			
 			String fmtEmail = email.trim();
 			
-			String updateStmt = "UPDATE user SET PhoneNumber=?, FirstName=?, LastName=?, Bio=?, Password=? WHERE Email_ID=?";
+			String updateStmt = "UPDATE user SET PhoneNumber=?, FirstName=?, LastName=?, Bio=?, Password=? WHERE Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(updateStmt);
 			
@@ -536,7 +536,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String selectStmt = "SELECT avatarUsing FROM user WHERE Email_ID=?";
+			String selectStmt = "SELECT avatarUsing FROM user WHERE Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(selectStmt);
 			
