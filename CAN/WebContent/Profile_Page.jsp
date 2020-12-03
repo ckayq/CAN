@@ -53,7 +53,7 @@
 			<h1>${settingsUpdatedMessage}</h1>
 			<div class="profile-header">
 				<div class="profile-img">
-					<img src="images/beaver.jpg" width="200">
+					<img src="<% out.println(userDAO.getAvatar(userSession.getEmail())); %>" width="200">
 				</div>
 				<div class="profile-nav-info">
 					<h3 class="user-name"> 										

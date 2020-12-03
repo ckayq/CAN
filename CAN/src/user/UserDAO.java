@@ -10,6 +10,8 @@ public interface UserDAO {
 	
 	public User getUserBio(String email);
 	
+	public String getAvatar(String email);
+	
 	public User getUserPhoneNumber(String email);
 	
 	public String getUserFirstName(String email);

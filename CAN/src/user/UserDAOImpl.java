@@ -22,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String insertStmt = "INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
+			String insertStmt = "INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);";
 			
 			preparedStmt = con.prepareStatement(insertStmt);
 			
@@ -34,6 +34,7 @@ public class UserDAOImpl implements UserDAO {
 			preparedStmt.setDouble(6, 0);
 			preparedStmt.setString(7, "none");
 			preparedStmt.setString(8, user.getPassword());
+			preparedStmt.setString(9, "images/default.jpg");
 			
 			status = preparedStmt.executeUpdate();
 			
@@ -384,7 +385,7 @@ public class UserDAOImpl implements UserDAO {
 			con = ConnectionProvider.getConnection();
 			
 			String fmtEmail = email.trim();
-			String userStatus = "";
+			//String userStatus = "";
 			
 			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?";
 			
@@ -413,20 +414,6 @@ public class UserDAOImpl implements UserDAO {
 				
 				preparedStmt.executeUpdate();
 				
-//				String selectStmt = "SELECT ProductName FROM product WHERE ProductID=?;";
-//				
-//				preparedStmt = con.prepareStatement(selectStmt);
-//				
-//				preparedStmt.setInt(1, avatarID);
-//				
-//				ResultSet resultSet = preparedStmt.executeQuery();
-//				
-//				while(resultSet.next()) {
-//					user.setStatus(resultSet.getString(1));
-//					
-//					userStatus = user.getStatus();
-//				}
-//				
 				String updateStmt = "UPDATE user SET Coins=? WHERE Email_ID=?";
 				
 				double updatedUserCoins = userCoins - avatarPrice;
@@ -439,7 +426,6 @@ public class UserDAOImpl implements UserDAO {
 				int result = preparedStmt.executeUpdate();
 				
 				if(result > 0) {
-					//user.setStatus(userStatus);
 					System.out.println("User purchased an avatar!");
 				}
 			} else {
@@ -539,5 +525,36 @@ public class UserDAOImpl implements UserDAO {
 		}
 		
 		return user;
+	}
+
+	@Override
+	public String getAvatar(String email) {
+		User user = new User();
+		
+		String avatar = "";
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String selectStmt = "SELECT avatarUsing FROM user WHERE Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(selectStmt);
+			
+			preparedStmt.setString(1, email);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			while(resultSet.next()) {
+				user.setAvatar(resultSet.getString(1));
+			}
+			
+			avatar = user.getAvatar();
+			
+			con.close();
+		} catch(Exception ex) {
+			System.out.println(ex);
+		}
+		
+		return avatar;
 	}
 }
