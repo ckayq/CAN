@@ -25,19 +25,16 @@ public class LikePostServlet extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String postID = request.getParameter("postID");
-		String postAuthor = request.getParameter("postAuthor");
-		double likes = 1;
+		String postAuthorEmail = request.getParameter("postAuthorEmail");
+		String userWhoLiked = request.getParameter("userWhoLiked");
+		int like = 1;
 		
-		HttpSession session = request.getSession();
-		
-		User user = (User) session.getAttribute("currentUser");
-		
-		Like like = new Like(Integer.parseInt(postID), postAuthor, likes);
+		Like likeObj = new Like();
 		
 		LikeDAO likeDAO = new LikeDAOImpl();
 		
-		likeDAO.insertLike(likes, postAuthor);
+		likeDAO.insertLike(Integer.parseInt(postID), postAuthorEmail, userWhoLiked, like);
 		
-		response.sendRedirect("http://localhost:8080/CAN/Main_Page.jsp");
+		response.sendRedirect("Main_Page.jsp");
 	}
 }

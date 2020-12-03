@@ -34,8 +34,6 @@ public class Buy extends HttpServlet {
 		UserDAO userDAO = new UserDAOImpl();
 		
 		if(request.getParameter("buyAvatar") != null) {
-			System.out.println("Buy Avatar");
-			
 			if(Double.parseDouble(userCoins) >= Integer.parseInt(avatarPrice.trim())) {
 				user = userDAO.userBuysAvatar(email.trim(), Integer.parseInt(avatarID.trim()), Integer.parseInt(avatarPrice.trim()), avatarURL.trim(), Double.parseDouble(userCoins.trim()));
 				
@@ -46,8 +44,6 @@ public class Buy extends HttpServlet {
 				request.getRequestDispatcher("store_page.jsp").forward(request, response);
 			}
 		} else if (request.getParameter("buyStatus") != null) {
-			System.out.println("Buy Status");
-			
 			if(Double.parseDouble(userCoins) >= Integer.parseInt(statusPrice.trim())) {
 				user = userDAO.userBuysStatus(email.trim(), Integer.parseInt(statusID.trim()), Integer.parseInt(statusPrice.trim()), statusURL.trim(), Double.parseDouble(userCoins.trim()));
 				

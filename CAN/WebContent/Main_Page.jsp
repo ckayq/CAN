@@ -9,9 +9,9 @@
 <%@ page import="dbConnection.ConnectionProvider" %>
     
 <%
-    User user = (User) session.getAttribute("currentUser");
+    User userSession = (User) session.getAttribute("currentUser");
 
-    if (user == null) {
+    if (userSession == null) {
         response.sendRedirect("LoginPage.jsp");
     }
 %>
@@ -81,7 +81,9 @@
 					      		</a>
 		    		        </button>
 					      	<input type="hidden" class="form-control" name="postID" value="<% out.print(post.getPostID()); %>"/>
-					      	<input type="hidden" class="form-control" name="postAuthor" value="<% out.println(post.getPostAuthorEmail()); %>"/>
+					      	<input type="hidden" class="form-control" name="postAuthorEmail" value="<% out.println(post.getPostAuthorEmail()); %>"/>
+					      	<input type="hidden" class="form-control" name="userWhoLiked" value="<% String email = userSession.getEmail();
+																									out.println(email); %>">
 					      </form>
 					      </div>
 						</div>

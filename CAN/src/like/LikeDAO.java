@@ -1,7 +1,7 @@
 package like;
 
 public interface LikeDAO {
-	public boolean insertLike(double coins, String phoneNumber);
+	public Like insertLike(int postID, String postAuthorEmail, String userWhoLiked, int like);
 	
 	public int countLikesOnPost(int postID);
 	
