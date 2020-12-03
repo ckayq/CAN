@@ -6,7 +6,7 @@
 		<title>Login</title>
 		
 		<style>
-		h1 {position:relative; top:270px;
+		h1 {position:relative; top:280px;
 			text-align: center;
 			}
 		</style>
@@ -20,6 +20,7 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body>
+		<h1><label class="logo"><img src="images/logo.png" height="110"></label></h1>
 		<h1 style="color:white"> Log in to CAN </h1>
 		<div class="container">
 			<div class="d-flex justify-content-center h-100">

@@ -21,7 +21,6 @@
 
 		<link rel="stylesheet" href="css/nav_style.css">
 		<link rel="stylesheet" href="css/main_style.css">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 		
 		<script src="https://kit.fontawesome.com/a076d05399.js%22%3E"></script>
@@ -37,7 +36,7 @@
 				<label for="check" class="checkbtn">
 					<i class="fas fa-bars"></i>
 				</label>
-				<label class="logo">WWW</label>
+				<label class="logo"><a href="Main_Page.jsp"><img src="images/logo.png" height="60"></a></label>
 				<ul>
 					<li><a href="Main_Page.jsp">Home</a></li>
 					<li><a href="Profile_Page.jsp">Profile</a></li>
@@ -75,11 +74,11 @@
 		    		        <button type="submit" class="btn btn-primary" value="Create Post">
 		    		            Create
 		    		        </button>
-		    		        <button class="btn btn-default">
-		    		            Cancel
-		    		        </button>
 		    		    </div>  
 		    		</form>
+		    		<button class="btn btn-default" onclick="location.href='Main_Page.jsp'">
+		    		      Cancel
+		    		</button>
 				</div>
 			</div>
 		</div>
