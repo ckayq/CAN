@@ -5,6 +5,10 @@ public class Like {
 	private String postAuthorEmail;
 	private double postLikes;
 	
+	public Like() {
+		super();
+	}
+
 	public Like(int postID, String postAuthorEmail, double postLikes) {
 		super();
 		

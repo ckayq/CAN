@@ -19,33 +19,97 @@ public class LikeDAOImpl implements LikeDAO {
     }
 	
 	@Override
-	public boolean insertLike(double likes, String email) {
-		boolean isInserted = false;
+	public Like insertLike(int postID, String postAuthorEmail, String userWhoLiked, int like) {
+		boolean isLiked = false;
+		
+		Like likeObj = new Like();
 		
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			double coins = likes * 1.5;
+			double likeToCoinsRate = 0;
+			double coins = 0;
+			String fmtPostAuthorEmail = postAuthorEmail.trim();
+			String fmtUserWhoLiked = userWhoLiked.trim();
 			
-			String fmtEmail = email.trim();
+			//Select Status From user Table
+			String checkStmt = "SELECT Status FROM user WHERE Email_ID=?";
+			
+			preparedStmt = con.prepareStatement(checkStmt);
+			
+			preparedStmt.setString(1, fmtUserWhoLiked);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			String status = "";
+			
+			while(resultSet.next()) {
+				status = resultSet.getString(1);
+				System.out.println(status);
+			} 
+			
+			if(status.equals("none")) {
+				likeToCoinsRate = 1;
+			} else if(status.equals("Bronze")) {
+				likeToCoinsRate = 1.5;
+			} else if(status.equals("Silver")) {
+				likeToCoinsRate = 2;
+			} else if(status.equals("Gold")) {
+				likeToCoinsRate = 2.5;
+			} else if(status.equals("Platinum")) {
+				likeToCoinsRate = 3.5;
+			} else if(status.equals("Diamond")) {
+				likeToCoinsRate = 4;
+			} else {
+				likeToCoinsRate = 1;
+			}
+			
+			coins = like * likeToCoinsRate;
+			//
 
-			String updateStmt = "UPDATE user SET Coins = ? WHERE Email_ID=?";
+			//Update user Table
+			String updateStmt = "UPDATE user SET Coins=? WHERE Email_ID=?";
 
 			preparedStmt = con.prepareStatement(updateStmt);
 			
 			preparedStmt.setDouble(1, coins);
-			preparedStmt.setString(2, fmtEmail);
+			preparedStmt.setString(2, fmtPostAuthorEmail);
 			
 			preparedStmt.executeUpdate();
+			//
 			
-			isInserted = true; 
+			//Update post Table
+			String updatePostStmt = "UPDATE post SET Likes=? WHERE PostID=? AND Email_ID=?";
+
+			preparedStmt = con.prepareStatement(updatePostStmt);
+			
+			preparedStmt.setDouble(1, like);
+			preparedStmt.setInt(2, postID);
+			preparedStmt.setString(3, fmtPostAuthorEmail);
+			
+			preparedStmt.executeUpdate();
+			//
+			
+			//Insert into user_likes_post Table
+			isLiked = true; 
+			
+			String insertStmt = "INSERT INTO user_likes_post(PostID, Email_ID, isLiked) VALUES(?, ?, ?)";
+
+			preparedStmt = con.prepareStatement(insertStmt);
+			
+			preparedStmt.setInt(1, postID);
+			preparedStmt.setString(2, fmtUserWhoLiked);
+			preparedStmt.setBoolean(3, isLiked);
+			
+			preparedStmt.executeUpdate();
+			//
 			
 			con.close();
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
 		
-		return isInserted;
+		return likeObj;
 	}
 
 	@Override
