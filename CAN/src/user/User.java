@@ -9,6 +9,7 @@ public class User {
 	private double coins;
 	private String status;
 	private String bio;
+	private String avatar;
 	
 	public User() {
 		super();
@@ -87,6 +88,14 @@ public class User {
 
 	public void setBio(String bio) {
 		this.bio = bio;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 	
 }
