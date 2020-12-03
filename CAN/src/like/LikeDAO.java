@@ -3,7 +3,7 @@ package like;
 public interface LikeDAO {
 	public Like insertLike(int postID, String postAuthorEmail, String userWhoLiked, int like);
 	
-	public int countLikesOnPost(int postID);
+	public int countLikesOnPost(int postID, String postAuthorEmail);
 	
 	public boolean postIsLiked(int postID, String email_ID);
 	
