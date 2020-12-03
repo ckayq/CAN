@@ -6,6 +6,12 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		
+		<style>
+		h1 {position:relative; top:20px;
+			text-align: center;
+			}
+		</style>
+		
 		<title>Reset Password</title>
 		
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
@@ -14,7 +20,8 @@
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>  
-	<body style="background-color:lightblue;">
+	<body style="background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');">
+	<h1><label class="logo"><img src="images/logo.png" height="100"></label></h1>
 		<br><br>
 		<div class="container">
 			<div class="card bg-light">

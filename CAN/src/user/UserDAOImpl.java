@@ -30,7 +30,7 @@ public class UserDAOImpl implements UserDAO {
 			preparedStmt.setString(2, user.getPhoneNumber());
 			preparedStmt.setString(3, user.getFirstName());
 			preparedStmt.setString(4, user.getLastName());
-			preparedStmt.setString(5, "");
+			preparedStmt.setString(5, "This user has not set a bio");
 			preparedStmt.setDouble(6, 0);
 			preparedStmt.setString(7, "none");
 			preparedStmt.setString(8, user.getPassword());
