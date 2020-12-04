@@ -147,6 +147,15 @@ div.post-review{
 	.content {
 		margin-left:13%;
 		margin-right:2%;
-		width:40%;
+		width:80%;
+	}
+	
+	.holder {
+		margin-left:10px;
+		width:100%;
+	}
+	
+	.post{
+		width:100%;
 	}
 }
