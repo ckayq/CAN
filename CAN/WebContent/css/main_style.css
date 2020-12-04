@@ -18,17 +18,18 @@ body {
 }
 
 .spacing .button {
-  background-color: #00CCFF;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 4px 70px 4px 500px;
-  cursor: pointer;
-  border:2px solid white; 
+	background-color: #00CCFF;
+ 	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	margin: 4px 70px 4px 500px;
+	cursor: pointer;
+	border:2px solid white; 
 	border-radius:15px;
+    float: right;
 }
 
 .author {
@@ -42,9 +43,8 @@ body {
 	border:3px solid white;
 	margin: 30px 137px 2px 140px;
 	padding-top:20px;
-	padding-bottom:20px;
+	padding-bottom:85px;
 	border-radius:15px;
-	
 }
 
 .spacing h1{

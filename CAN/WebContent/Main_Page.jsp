@@ -59,7 +59,7 @@
 			<%
 				PostDAOImpl postDAO = new PostDAOImpl(ConnectionProvider.getConnection());
 						
-				LikeDAO likeDAO = new LikeDAOImpl(ConnectionProvider.getConnection());
+				LikeDAO likeDAO = new LikeDAOImpl();
 				
 				List<Post> postList = postDAO.getAllPosts();
 				
@@ -81,10 +81,14 @@
 					        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
 					      </div>
 					      
-					      <p class="likes_info" style="color:white font-family:'Times New Roman', Times, serif">Likes: 20</p>
+					      <p class="likes_info" style="color:white; font-family:'Times New Roman', Times, serif">
+					      	Likes: <% int likes = likeDAO.countLikesOnPost(post.getPostID(), post.getPostAuthorEmail());
+					      				out.println(likes);
+					      			%> 
+					      </p>
 					      <form action="LikePost" method="post">
 					      	<button type="submit" class="btn btn-outline-primary btn-sm float-right" value="Like Post">
-		    		            <a href="#!" class="btn btn-outline-primary btn-sm float-right">	
+		    		            <a class="btn btn-outline-primary btn-sm float-right">	
 						      		<i class="fa fa-thumbs-o-up"></i> 
 					      		</a>
 		    		        </button>
@@ -97,9 +101,8 @@
 						</div>
 					</div>		
 					
-				<% }
-			%>
-			
+					<% }
+				%>
 			</div>
 		</div>			
 	</body>
