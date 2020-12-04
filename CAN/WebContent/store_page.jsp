@@ -46,7 +46,7 @@
 				<label for="check" class="checkbtn">
 					<i class="fas fa-bars"></i>
 				</label>
-				<label class="logo"><a href="Main_Page.jsp"><img src="images/logo.png" height="65"></a></label>
+				<label class="logo"><a href="Main_Page.jsp"><img src="images/logo.png" height="60"></a></label>
 				<ul>
 					<li><a href="Main_Page.jsp">Home</a></li>
 					<li><a href="Profile_Page.jsp">Profile</a></li>
