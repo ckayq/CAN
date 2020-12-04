@@ -14,7 +14,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Create Post</title>
+		<title>Edit Post</title>
 
 		<link rel="stylesheet" href="css/nav_style.css">
 		<link rel="stylesheet" href="css/main_style.css">
@@ -48,11 +48,11 @@
 			    
 			    <div class="col-md-8 col-md-offset-2">
 			        
-			        <h3>${emptyEntryMessage}</h3>
+			        <h3>${emptyInputMessage}</h3>
 			        
-		    		<h1>Create post</h1>
+		    		<h1>Edit post</h1>
 		    		
-		    		<form action="CreatePost" method="post">
+		    		<form action="ManagePost" method="post">
 		    		    <div class="form-group">
 		    		        <label for="title">Title <span class="require">*</span></label>
 		    		        <input type="text" class="form-control" name="postTitle" />
@@ -68,12 +68,12 @@
 		    		    </div>
 		    		    
 		    		    <div class="form-group">
-		    		        <button type="submit" class="btn btn-primary" value="Create Post">
-		    		            Create
+		    		        <button type="submit" class="btn btn-primary" value="Update Post">
+		    		            Update
 		    		        </button>
 		    		    </div>  
 		    		</form>
-		    		<button class="btn btn-default" onclick="location.href='Main_Page.jsp'">
+		    		<button class="btn btn-default" onclick="location.href='Profile_Page.jsp'">
 		    		      Cancel
 		    		</button>
 				</div>

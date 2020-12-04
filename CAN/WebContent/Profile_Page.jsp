@@ -114,11 +114,9 @@
 							<a href="CreatePostPage.jsp">
 								<button class="createbtn">Create Post</button>	
 							</a>	
-							
 							<a href="EditAccountDetails.jsp">
 								<button class="edit_accountbtn">Edit Account Details</button>
-							</a>
-								
+							</a>		
 						</div>
 					</div>
 				</div>
@@ -153,11 +151,15 @@
 										      				out.println(likes);
 										      			%> 
 									      	</p>
-									      	<div class="profile-btn">
-									  
-									      		<button class="edit_post">Edit Post</button>
-									      		<button class="delete_post">Delete Post</button>
-									      	</div>
+									      	<form action="ManagePost" method="post">
+										      	<div class="profile-btn">
+				      								<a href="EditPost.jsp">
+										      			<button class="edit_post" value="Edit">Edit</button>	
+													</a>
+										      		<button class="delete_post" value="Delete">Delete</button>
+										      		<input type="hidden" name="postID" value="<% out.println(post.getPostID()); %>">
+										      	</div>
+									      	</form>
 										</div>
 									</div>
 								<% }
