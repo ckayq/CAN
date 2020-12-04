@@ -112,9 +112,15 @@
 							<a href="CreatePostPage.jsp">
 								<button class="createbtn">Create Post</button>	
 							</a>
+							
+							<a href="">
+								<button class="edit_post">Edit Post</button>
+							</a>	
+							
 							<a href="EditAccountDetails.jsp">
 								<button class="edit_accountbtn">Edit Account Details</button>
 							</a>
+								
 						</div>
 					</div>
 				</div>
@@ -128,11 +134,15 @@
 								for(Post post : postList) 
 								{ %>
 									<div class="holder">
+										
 									    <div class="post">
+									    	<div class="post-head">
+												<img src="images/beaver.jpg" alt="">
+												<i class="far fa-user" > <% out.println(post.getPostAuthorEmail()); %> </i>
+											</div>
 									    	<div class="post-review" style="background-color:white;">
 												<i class="far calendar"><% out.println(post.getPostCreationDate()); %> </i>
 										        <h1 class="post-title" > <% out.println(post.getPostTitle()); %> </h1>
-										        <i class="far fa-user" > Author: <% out.println(post.getPostAuthorEmail()); %> </i>
 										        &nbsp;
 										        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
 										        
