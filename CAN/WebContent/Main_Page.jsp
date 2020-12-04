@@ -32,7 +32,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	</head>
 	<body style="background:#d8ecf3">
-		<div class="topnav">
+		<div class="topnav" id="myTopnav">
 			<nav>
 				<input type="checkbox" id="check">
 				<label for="check" class="checkbtn">
