@@ -55,12 +55,12 @@
 		    		<form action="ManagePost" method="post">
 		    		    <div class="form-group">
 		    		        <label for="title">Title <span class="require">*</span></label>
-		    		        <input type="text" class="form-control" name="postTitle" />
+		    		        <input type="text" class="form-control" name="postTitle" maxlength="15"/>
 		    		    </div>
 		    		    
 		    		    <div class="form-group">
 		    		        <label for="description">Body <span class="require">*</span></label>
-		    		        <textarea rows="5" class="form-control" name="postBody" ></textarea>
+		    		        <textarea rows="5" class="form-control" name="postBody" maxlength="200"></textarea>
 		    		    </div>
 		    		    
 		    		    <div class="form-group">

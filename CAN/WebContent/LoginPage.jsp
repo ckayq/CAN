@@ -37,13 +37,13 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-user"></i></span>
 								</div>
-								<input name="email" type="text" class="form-control" placeholder="Email">
+								<input name="email" type="text" class="form-control" placeholder="Email" maxlength="40">
 							</div>
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-key"></i></span>
 								</div>
-								<input name="password" type="password" class="form-control" placeholder="password">
+								<input name="password" type="password" class="form-control" placeholder="password" maxlength="20">
 							</div>
 							<div class="form-group">
 								<input type="submit" name="submit" value="Login" class="btn float-right login_btn">
