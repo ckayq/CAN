@@ -24,14 +24,13 @@
 		
 		<link rel="stylesheet" href="css/nav_style.css">
 		<link rel="stylesheet" href="css/main_style.css">
-		<link rel="stylesheet" href="css/profile_style.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 		
 		<script src="https://kit.fontawesome.com/0e28daf7be.js" crossorigin="anonymous"></script>
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	</head>
-	<body>
+	<body style="background:#d8ecf3">
 		<div class="topnav">
 			<nav>
 				<input type="checkbox" id="check">
@@ -49,9 +48,11 @@
 		</div>
 		
 		<div class="spacing">
+			<h1> Recent Posts </h1>
 			<a href="CreatePostPage.jsp"><button class="button" type="button">Create Post</button></a>
+		
 		</div><br>
-		<h1 class="spacing"> Recent Posts </h1>
+		
 		<div class="content clearfix">
 			<div class="row">
 			
@@ -67,13 +68,19 @@
 					
 					<div class="holder">
 					    <div class="post">
+					    	<div class="post-head">
+					    		<img src="images/beaver.jpg" alt="">
+					    		<i class="far fa-user" > <% out.println(post.getPostAuthorEmail()); %> </i>
+					    	</div>
+					    
+					    
 					      <div class="post-review" style="background-color:white;">
 					        <i class="far calendar"> <% out.println(post.getPostCreationDate()); %> </i>
 					        <h1 class="post-title"> <% out.println(post.getPostTitle()); %> </h1>
-					        <i class="far fa-user" > Author: <% out.println(post.getPostAuthorEmail()); %> </i>
+					        
 					        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
 					      </div>
-					      <div class="card-footer">
+					      
 					      <form action="LikePost" method="post">
 					      	<button type="submit" class="btn btn-outline-primary btn-sm float-right" value="Like Post">
 		    		            <a href="#!" class="btn btn-outline-primary btn-sm float-right">	
@@ -85,7 +92,7 @@
 					      	<input type="hidden" class="form-control" name="userWhoLiked" value="<% String email = userSession.getEmail();
 																									out.println(email); %>">
 					      </form>
-					      </div>
+					      
 						</div>
 					</div>		
 					
