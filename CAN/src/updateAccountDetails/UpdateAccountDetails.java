@@ -32,12 +32,10 @@ public class UpdateAccountDetails extends HttpServlet {
 		String newPassword = request.getParameter("newPassword");
 		String updateAvatar = request.getParameter("ChangeAvatar");
 		
-		System.out.println(updateAvatar);
 		if(firstName.equals("") && lastName.equals("") && bio.equals("") && phoneNumber.equals("") && newPassword.equals("")) {
 			request.setAttribute("emptyInputMessage", "Please enter your new account details or go back to the profile page!");
 			request.getRequestDispatcher("EditAccountDetails.jsp").forward(request, response);
 		} else if(firstName.equals("") || lastName.equals("") || phoneNumber.equals("") || newPassword.equals("")) {	
-			
 			request.setAttribute("emptyInputMessage", "Please enter your new account details or go back to the profile page!");
 			request.getRequestDispatcher("EditAccountDetails.jsp").forward(request, response);
 		} else if(bio.equals("")) {
@@ -51,12 +49,5 @@ public class UpdateAccountDetails extends HttpServlet {
 			request.setAttribute("settingsUpdatedMessage", "Your account settings were updated!");
 			request.getRequestDispatcher("Profile_Page.jsp").forward(request, response);
 		}		
-		
-		System.out.println(user.getFirstName());
-		System.out.println(user.getLastName());
-		System.out.println(user.getBio());
-		System.out.println(user.getPhoneNumber());
-		System.out.println(user.getPassword());
-		System.out.println(user.getAvatar());
 	}
 }

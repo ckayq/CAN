@@ -79,4 +79,36 @@ public class PostDAOImpl implements PostDAO {
 		
 		return postList;
 	}
+	
+	@Override
+	public Post editPost(int postID, String postTitle, String postBody) {
+		Post post = new Post();
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String updateStmt = "UPDATE post SET PostTitle=?, PostBody=? WHERE PostID=?";
+			
+			preparedStmt = con.prepareStatement(updateStmt);
+			
+			preparedStmt.setString(1, postTitle);
+			preparedStmt.setString(2, postBody);
+			preparedStmt.setInt(3, postID);
+			
+			ResultSet resultSet = preparedStmt.executeQuery();
+			
+			while(resultSet.next()) {
+				post.setPostTitle(postTitle);
+				post.setPostBody(postBody);
+			}
+			
+			System.out.println(postTitle + "\n" + postBody);
+			
+			con.close();
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		return post;
+	}
 }
