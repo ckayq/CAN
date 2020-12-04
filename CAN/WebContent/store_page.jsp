@@ -59,12 +59,12 @@
 		<h2>Store</h2>
 		<br>
 		<div class="container" style="background-color:white;">
-				<div class="row" >
-					<div class="col-md-12" >
-						<h1> Avatar </h1>
 						<h5> ${avatarBoughtMessage} </h5>
 						<h5> ${notEnoughCoinsMessage} </h5>	
 						<h5> ${alreadyHasProductMessage} </h5>
+				<div class="row" >
+					<div class="col-md-12" >
+						<h1> Avatar </h1>
 						<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 						<ol class="carousel-indicators">
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -120,12 +120,12 @@
 		<br><br>
 		
 		<div class="container" style="background-color:white;">
-				<div class="row" >
-					<div class="col-md-12" >
-						<h1> Status </h1>
 						<h5> ${statusBoughtMessage} </h5>
 						<h5> ${notEnoughCoinsMessage} </h5>	
 						<h5> ${alreadyHasProductMessage} </h5>
+				<div class="row" >
+					<div class="col-md-12" >
+						<h1> Status </h1>
 						<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 						<ol class="carousel-indicators">
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
