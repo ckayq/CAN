@@ -51,7 +51,10 @@
 			        <h3>${emptyInputMessage}</h3>
 			        
 		    		<h1>Edit post</h1>
-		    		
+		    		<p><%
+						String postID = request.getParameter("edit");
+						%>
+						</p>
 		    		<form action="ManagePost" method="post">
 		    		    <div class="form-group">
 		    		        <label for="title">Title <span class="require">*</span></label>
@@ -66,6 +69,7 @@
 		    		    <div class="form-group">
 		    		        <p><span class="require">*</span> - required fields</p>
 		    		    </div>
+		    		    <input type="hidden" name ="postID" value="<% out.print(postID); %>">
 		    		    
 		    		    <div class="form-group">
 		    		        <button type="submit" class="btn btn-primary" value="Update Post">
