@@ -135,7 +135,7 @@
 										
 									    <div class="post">
 									    	<div class="post-head">
-												<img src="images/beaver.jpg" alt="">
+												<img src="<%out.println(userDAO.getAvatar(userSession.getEmail())); %>" alt="">
 												<i class="far fa-user" > <% out.println(post.getPostAuthorEmail()); %> </i>
 												<i class="far calendar"><% out.println(post.getPostCreationDate()); %> </i>
 											</div>

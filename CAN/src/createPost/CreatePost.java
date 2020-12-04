@@ -46,7 +46,7 @@ public class CreatePost extends HttpServlet {
 			if(postDAO.insertPost(post)) {
 				System.out.println("Post created");
 				
-				response.sendRedirect("http://localhost:8080/CAN/Main_Page.jsp");
+				response.sendRedirect("http://localhost:8080/CAN/Profile_Page.jsp");
 			}
 		} else {
 			request.setAttribute("emptyEntryMessage", "Please fill in the post title and body!");
