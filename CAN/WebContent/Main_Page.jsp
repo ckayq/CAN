@@ -72,11 +72,11 @@
 					    	<div class="post-head">
 					    		<img src="images/beaver.jpg" alt="">
 					    		<i class="far fa-user" > <% out.println(post.getPostAuthorEmail()); %> </i>
+					       	    <i class="far calendar"> <% out.println(post.getPostCreationDate()); %> </i>
 					    	</div>
 					    
 					    
 					      <div class="post-review" style="background-color:white;">
-					        <i class="far calendar"> <% out.println(post.getPostCreationDate()); %> </i>
 					        <h1 class="post-title"> <% out.println(post.getPostTitle()); %> </h1>
 					        
 					        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>

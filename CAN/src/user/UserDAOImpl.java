@@ -381,6 +381,7 @@ public class UserDAOImpl implements UserDAO {
 				}
 			} else {
 				System.out.println("User already has this status!");
+				return null;
 			}
 			}
 			
@@ -444,6 +445,7 @@ public class UserDAOImpl implements UserDAO {
 				}
 			} else {
 				System.out.println("User already has this avatar!");
+				return null;
 			}
 			
 			con.close();
