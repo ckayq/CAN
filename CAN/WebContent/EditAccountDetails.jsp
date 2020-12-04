@@ -61,13 +61,13 @@
 							<div class="input-group-prepend">
 							    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 							 </div>
-					        <input name="firstName" class="form-control" placeholder="First Name" type="text">
+					        <input name="firstName" class="form-control" placeholder="First Name" type="text" maxlength="20">
 					    </div> 
 					    <div class="form-group input-group">
 							<div class="input-group-prepend">
 							    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 							 </div>
-					        <input name="lastName" class="form-control" placeholder="Last Name" type="text">
+					        <input name="lastName" class="form-control" placeholder="Last Name" type="text" maxlength="20">
 					    </div> 
 					    <div class="form-group">
    		    		        <label for="description">Bio</label>
@@ -77,13 +77,13 @@
 					    	<div class="input-group-prepend">
 							    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 							</div>
-					    	<input name="phoneNumber" class="form-control" placeholder="Phone number" type="text">
+					    	<input name="phoneNumber" class="form-control" placeholder="Phone number" type="text" maxlength="10">
 					    </div> 
 					    <div class="form-group input-group">
 					    	<div class="input-group-prepend">
 							    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 							</div>
-					        <input name="newPassword" class="form-control" placeholder="Enter new password" type="password">
+					        <input name="newPassword" class="form-control" placeholder="Enter new password" type="password" maxlength="20"> 
 					    </div>  
 					    <div class="form-group">
    		    		        <label for="ChangeAvatar">Change Avatar</label>
