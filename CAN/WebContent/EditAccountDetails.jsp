@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-    
+
+<%@ page import="java.util.List"%>    
 <%@ page import="user.User" %>
-    
+<%@ page import="user.UserDAO" %>
+<%@ page import="user.UserDAOImpl" %>
+<%@ page import="avatar.Avatar" %>
+<%@ page import="avatar.AvatarDAOImpl" %>
+<%@ page import="dbConnection.ConnectionProvider" %>
+  
 <%
 
     User user = (User) session.getAttribute("currentUser");
@@ -9,6 +15,7 @@
     if (user == null) {
         response.sendRedirect("LoginPage.jsp");
     }
+
 %>
     
 <!DOCTYPE html>
@@ -80,11 +87,18 @@
 					    </div>  
 					    <div class="form-group">
    		    		        <label for="ChangeAvatar">Change Avatar</label>
-		    		          <select name="cars" id="cars">
-							    <option value="volvo">Volvo</option>
-							    <option value="saab">Saab</option>
-							    <option value="opel">Opel</option>
-							    <option value="audi">Audi</option>
+		    		          <select name="ChangeAvatar" id="cars">
+							
+   						<%
+							AvatarDAOImpl avatarDAO = new AvatarDAOImpl();
+   							
+   		    		        List<Avatar> avatarList = avatarDAO.getAllAvatar(user.getEmail());
+   									
+   							for(Avatar avatar : avatarList) 
+   							{ %>
+							    <option value="<%out.println(avatar.getAvatar());%>"> <% out.println(avatar.getAvatar());%> </option>
+								<% }
+							%>
 							  </select>
 		    		    </div>                     
 					    <div class="form-group">

@@ -30,5 +30,5 @@ public interface UserDAO {
 	
 	public User resetUserPassword(String email, String firstName, String lastName, String phoneNumber, String newPassword);
 	
-	public User updateAccountDetails(String email, String firstName, String lastName, String phoneNumber, String bio,String newPassword);
+	public User updateAccountDetails(String email, String firstName, String lastName, String phoneNumber, String bio,String newPassword, String imageURL);
 }

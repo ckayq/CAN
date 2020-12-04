@@ -488,9 +488,8 @@ public class UserDAOImpl implements UserDAO {
 		
 		return user;
 	}
-	
 	@Override
-	public User updateAccountDetails(String email, String firstName, String lastName, String phoneNumber, String bio,String newPassword) {
+	public User updateAccountDetails(String email, String firstName, String lastName, String phoneNumber, String bio,String newPassword, String imageURL) {
 		User user = new User();
 		
 		try {
@@ -498,7 +497,7 @@ public class UserDAOImpl implements UserDAO {
 			
 			String fmtEmail = email.trim();
 			
-			String updateStmt = "UPDATE user SET PhoneNumber=?, FirstName=?, LastName=?, Bio=?, Password=? WHERE Email_ID=?;";
+			String updateStmt = "UPDATE user SET PhoneNumber=?, FirstName=?, LastName=?, Bio=?, Password=?, avatarUsing=? WHERE Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(updateStmt);
 			
@@ -507,7 +506,8 @@ public class UserDAOImpl implements UserDAO {
 			preparedStmt.setString(3, lastName);
 			preparedStmt.setString(4, bio);
 			preparedStmt.setString(5, newPassword);
-			preparedStmt.setString(6, fmtEmail);
+			preparedStmt.setString(6, imageURL);
+			preparedStmt.setString(7, fmtEmail);
 			
 			int result = preparedStmt.executeUpdate();		
 			
@@ -517,6 +517,7 @@ public class UserDAOImpl implements UserDAO {
 				user.setBio(bio);
 				user.setPhoneNumber(phoneNumber);
 				user.setPassword(newPassword);
+				user.setAvatar(imageURL);
 			}
 			
 			con.close();
@@ -557,4 +558,7 @@ public class UserDAOImpl implements UserDAO {
 		
 		return avatar;
 	}
+	
+
+	
 }
