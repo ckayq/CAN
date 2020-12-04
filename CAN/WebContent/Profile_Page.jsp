@@ -151,15 +151,16 @@
 										      				out.println(likes);
 										      			%> 
 									      	</p>
-									      	<form action="ManagePost" method="post">
 										      	<div class="profile-btn">
+									      	<form action="EditPost.jsp" method="post">
 				      								<a href="EditPost.jsp">
-										      			<button class="edit_post" value="Edit">Edit</button>	
+										      			<button class="edit_post" name="edit" value="<%out.print(post.getPostID());%>">Edit</button>	
 													</a>
+											</form>		
 										      		<button class="delete_post" value="Delete">Delete</button>
 										      		<input type="hidden" name="postID" value="<% out.println(post.getPostID()); %>">
 										      	</div>
-									      	</form>
+									      	
 										</div>
 									</div>
 								<% }

@@ -95,9 +95,9 @@ public class PostDAOImpl implements PostDAO {
 			preparedStmt.setString(2, postBody);
 			preparedStmt.setInt(3, postID);
 			
-			ResultSet resultSet = preparedStmt.executeQuery();
+			int resultSet = preparedStmt.executeUpdate();
 			
-			while(resultSet.next()) {
+			if(resultSet > 0) {
 				post.setPostTitle(postTitle);
 				post.setPostBody(postBody);
 			}
