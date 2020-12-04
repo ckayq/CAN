@@ -37,7 +37,6 @@ public class UserDAOImpl implements UserDAO {
 			preparedStmt.setString(9, "images/default.jpg");
 			
 			status = preparedStmt.executeUpdate();
-			
 			con.close();
 		} catch(Exception ex) {
 			System.out.println(ex);
@@ -307,6 +306,7 @@ public class UserDAOImpl implements UserDAO {
 			
 			String fmtEmail = email.trim();
 			String userStatus = "";
+			int checkUserStatus = 0;
 			
 			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?;";
 			
@@ -324,6 +324,20 @@ public class UserDAOImpl implements UserDAO {
 			} 
 			
 			if(count == 0) {
+				String checkedStmt = "SELECT ProductID FROM user_buys_product WHERE Email_ID=?;";
+				
+				preparedStmt = con.prepareStatement(checkedStmt);
+				
+				preparedStmt.setString(1, email);
+				
+				ResultSet resultSet = preparedStmt.executeQuery();
+				
+				while(resultSet.next()) {
+					user.setProductID(resultSet.getInt(1));
+					
+					checkUserStatus = user.getProductID();
+				}
+				if(statusID > checkUserStatus) {
 				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ImageURL, Email_ID) VALUES(?, ?, ?, ?);";
 				
 				preparedStmt = con.prepareStatement(insertStmt);
@@ -341,7 +355,7 @@ public class UserDAOImpl implements UserDAO {
 				
 				preparedStmt.setInt(1, statusID);
 				
-				ResultSet resultSet = preparedStmt.executeQuery();
+				resultSet = preparedStmt.executeQuery();
 				
 				while(resultSet.next()) {
 					user.setStatus(resultSet.getString(1));
@@ -368,6 +382,7 @@ public class UserDAOImpl implements UserDAO {
 			} else {
 				System.out.println("User already has this status!");
 			}
+			}
 			
 			con.close();
 		} catch(Exception ex) {
@@ -385,7 +400,6 @@ public class UserDAOImpl implements UserDAO {
 			con = ConnectionProvider.getConnection();
 			
 			String fmtEmail = email.trim();
-			//String userStatus = "";
 			
 			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?;";
 			

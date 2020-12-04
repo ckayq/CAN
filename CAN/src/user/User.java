@@ -10,6 +10,7 @@ public class User {
 	private String status;
 	private String bio;
 	private String avatar;
+	private int productID;
 	
 	public User() {
 		super();
@@ -97,6 +98,14 @@ public class User {
 
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
+	}
+
+	public int getProductID() {
+		return productID;
+	}
+
+	public void setProductID(int productID) {
+		this.productID = productID;
 	}
 	
 }
