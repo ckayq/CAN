@@ -81,6 +81,7 @@
 					        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
 					      </div>
 					      
+					      <p class="likes_info" style="color:white font-family:'Times New Roman', Times, serif">Likes: 20</p>
 					      <form action="LikePost" method="post">
 					      	<button type="submit" class="btn btn-outline-primary btn-sm float-right" value="Like Post">
 		    		            <a href="#!" class="btn btn-outline-primary btn-sm float-right">	

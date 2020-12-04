@@ -111,10 +111,6 @@
 						<div class="profile-btn">
 							<a href="CreatePostPage.jsp">
 								<button class="createbtn">Create Post</button>	
-							</a>
-							
-							<a href="">
-								<button class="edit_post">Edit Post</button>
 							</a>	
 							
 							<a href="EditAccountDetails.jsp">
@@ -139,6 +135,7 @@
 									    	<div class="post-head">
 												<img src="images/beaver.jpg" alt="">
 												<i class="far fa-user" > <% out.println(post.getPostAuthorEmail()); %> </i>
+												
 											</div>
 									    	<div class="post-review" style="background-color:white;">
 												<i class="far calendar"><% out.println(post.getPostCreationDate()); %> </i>
@@ -146,6 +143,12 @@
 										        &nbsp;
 										        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
 										        
+									      	</div>
+									      	<p class="likes_info" style="color:white font-family:'Times New Roman', Times, serif">Likes: 20</p>
+									      	<div class="profile-btn">
+									  
+									      		<button class="edit_post">Edit Post</button>
+									      		<button class="delete_post">Delete Post</button>
 									      	</div>
 										</div>
 									</div>
