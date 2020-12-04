@@ -23,8 +23,9 @@ public class User {
 		this.email = newEmail;
 		this.phoneNumber = newPhoneNumber;
 		this.password = newPassword;
+		
 	}
-
+	
 	public String getFirstName() {
 		return firstName;
 	}
