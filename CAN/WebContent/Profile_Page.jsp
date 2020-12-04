@@ -51,7 +51,7 @@
 				</ul>
 			</nav>
 		</div>
-		<div class="container">
+		<div>
 			<h1>${settingsUpdatedMessage}</h1>
 			<div class="profile-header">
 				<div class="profile-img">
@@ -137,30 +137,28 @@
 									    	<div class="post-head">
 												<img src="images/beaver.jpg" alt="">
 												<i class="far fa-user" > <% out.println(post.getPostAuthorEmail()); %> </i>
-												
+												<i class="far calendar"><% out.println(post.getPostCreationDate()); %> </i>
 											</div>
 									    	<div class="post-review" style="background-color:white;">
-												<i class="far calendar"><% out.println(post.getPostCreationDate()); %> </i>
 										        <h1 class="post-title" > <% out.println(post.getPostTitle()); %> </h1>
-										        &nbsp;
 										        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
 										        
 									      	</div>
-			      					      	<p class="likes_info" style="color:white font-family:'Times New Roman', Times, serif">
+									      	<div class="likes_number">
+			      					      	<p class="likes_info" style="color:black; font-family:'Times New Roman', Times, serif">
 										      	Likes: <% int likes = likeDAO.countLikesOnPost(post.getPostID(), post.getPostAuthorEmail());
 										      				out.println(likes);
 										      			%> 
 									      	</p>
-										      	<div class="profile-btn">
+									      	</div>
+										     
 									      	<form action="EditPost.jsp" method="post">
 				      								<a href="EditPost.jsp">
 										      			<button class="edit_post" name="edit" value="<%out.print(post.getPostID());%>">Edit</button>	
 													</a>
-											</form>		
 										      		<button class="delete_post" value="Delete">Delete</button>
 										      		<input type="hidden" name="postID" value="<% out.println(post.getPostID()); %>">
-										      	</div>
-									      	
+											</form>		
 										</div>
 									</div>
 								<% }
