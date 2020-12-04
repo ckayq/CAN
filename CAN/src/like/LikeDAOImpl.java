@@ -160,7 +160,7 @@ public class LikeDAOImpl implements LikeDAO {
 			
 			String fmtPostAuthorEmail = postAuthorEmail.trim();
 			
-			String countLikesStmt = "SELECT Likes FROM post WHERE PostID=? AND Emai_ID=?";
+			String countLikesStmt = "SELECT Likes FROM post WHERE PostID=? AND Email_ID=?";
 			
 			preparedStmt = con.prepareStatement(countLikesStmt);
 			

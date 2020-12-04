@@ -6,6 +6,8 @@
 <%@ page import="user.UserDAOImpl" %>
 <%@ page import="post.Post" %>
 <%@ page import="post.PostDAOImpl" %>
+<%@ page import="like.LikeDAO" %>
+<%@ page import="like.LikeDAOImpl" %>
 
 <%
     User userSession = (User) session.getAttribute("currentUser");
@@ -127,6 +129,8 @@
 							<%
 								List<Post> postList = userDAO.getUserPosts(userSession.getEmail());
 								
+								LikeDAO likeDAO = new LikeDAOImpl();
+							
 								for(Post post : postList) 
 								{ %>
 									<div class="holder">
@@ -144,7 +148,11 @@
 										        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
 										        
 									      	</div>
-									      	<p class="likes_info" style="color:white font-family:'Times New Roman', Times, serif">Likes: 20</p>
+			      					      	<p class="likes_info" style="color:white font-family:'Times New Roman', Times, serif">
+										      	Likes: <% int likes = likeDAO.countLikesOnPost(post.getPostID(), post.getPostAuthorEmail());
+										      				out.println(likes);
+										      			%> 
+									      	</p>
 									      	<div class="profile-btn">
 									  
 									      		<button class="edit_post">Edit Post</button>
@@ -161,4 +169,3 @@
 		</div>	
 	</body>
 </html>
-
