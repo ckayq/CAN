@@ -11,11 +11,11 @@ import post.Post;
 import post.PostDAO;
 import post.PostDAOImpl;
 
-@WebServlet("/ManagePost")
-public class ManagePost extends HttpServlet {
+@WebServlet("/EditPost")
+public class EditPost extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public ManagePost() {
+    public EditPost() {
         super();
     }
 
@@ -37,7 +37,5 @@ public class ManagePost extends HttpServlet {
 			request.setAttribute("postUpdatedMessage", "You have successfully updated your post!");
 			request.getRequestDispatcher("Profile_Page.jsp").forward(request, response);
 		}
-		
 	}
-
 }
