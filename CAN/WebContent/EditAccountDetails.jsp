@@ -88,7 +88,7 @@
 					    <div class="form-group">
    		    		        <label for="updateAvatar">Change Avatar</label>
 		    		          <select name="updateAvatar">
-							
+							  <option value="default.jpg"> Default </option>
 		   						<%
 									AvatarDAOImpl avatarDAO = new AvatarDAOImpl();
 		   							

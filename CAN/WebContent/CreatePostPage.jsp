@@ -55,7 +55,7 @@
 		    		<form action="CreatePost" method="post">
 		    		    <div class="form-group">
 		    		        <label for="title">Title <span class="require">*</span></label>
-		    		        <input type="text" class="form-control" name="postTitle" maxlength="15"/>
+		    		        <input type="text" class="form-control" name="postTitle" maxlength="25"/>
 		    		    </div>
 		    		    
 		    		    <div class="form-group">
