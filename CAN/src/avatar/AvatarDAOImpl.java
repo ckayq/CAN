@@ -82,7 +82,6 @@ public class AvatarDAOImpl implements AvatarDAO{
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		System.out.print(avatar + " " + email);
 		
 		return avatar;
 	} 

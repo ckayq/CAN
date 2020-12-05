@@ -306,7 +306,32 @@ public class UserDAOImpl implements UserDAO {
 			
 			String fmtEmail = email.trim();
 			String userStatus = "";
-			int checkUserStatus = 0;
+			String currentUserStatus = "";
+			int currentUserStatusID = 0;
+			
+			String getStmt = "SELECT Status FROM user WHERE Email_ID=?;";
+			
+			preparedStmt = con.prepareStatement(getStmt);
+			
+			preparedStmt.setString(1, fmtEmail);
+			
+			ResultSet currentStatus = preparedStmt.executeQuery();
+			
+			while(currentStatus.next()) {
+				currentUserStatus = currentStatus.getString(1);
+				
+				if(currentUserStatus.equals("Bronze")) {
+					currentUserStatusID = 9;
+				} else if(currentUserStatus.equals("Silver")) {
+					currentUserStatusID = 10;
+				} else if(currentUserStatus.equals("Gold")) {
+					currentUserStatusID = 11;
+				} else if(currentUserStatus.equals("Platinum")) {
+					currentUserStatusID = 12;
+				} else if(currentUserStatus.equals("Diamond")) {
+					currentUserStatusID = 13;
+				}
+			}
 			
 			String checkStmt = "SELECT * FROM user_buys_product WHERE ProductID=? AND Email_ID=?;";
 			
@@ -323,64 +348,48 @@ public class UserDAOImpl implements UserDAO {
 				count = isBought.getInt(1);
 			} 
 			
-			if(count == 0) {
-				String checkedStmt = "SELECT ProductID FROM user_buys_product WHERE Email_ID=?;";
+			if(count == 0 && currentUserStatusID <= statusID) {
+				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ProductName, ImageURL, Email_ID) VALUES(?, ?, ?, ?, ?);";
 				
-				preparedStmt = con.prepareStatement(checkedStmt);
+				preparedStmt = con.prepareStatement(insertStmt);
 				
-				preparedStmt.setString(1, email);
+				preparedStmt.setInt(1, statusID);
+				preparedStmt.setInt(2, statusPrice);
+				preparedStmt.setString(3, statusName);
+				preparedStmt.setString(4, statusURL);
+				preparedStmt.setString(5, fmtEmail);
+				
+				preparedStmt.executeUpdate();
+				
+				String selectStmt = "SELECT ProductName FROM product WHERE ProductID=?;";
+				
+				preparedStmt = con.prepareStatement(selectStmt);
+				
+				preparedStmt.setInt(1, statusID);
 				
 				ResultSet resultSet = preparedStmt.executeQuery();
 				
 				while(resultSet.next()) {
-					user.setProductID(resultSet.getInt(1));
+					user.setStatus(resultSet.getString(1));
 					
-					checkUserStatus = user.getProductID();
+					userStatus = user.getStatus();
 				}
 				
-				if(statusID > checkUserStatus) {
-					String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ProductName, ImageURL, Email_ID) VALUES(?, ?, ?, ?, ?);";
-					
-					preparedStmt = con.prepareStatement(insertStmt);
-					
-					preparedStmt.setInt(1, statusID);
-					preparedStmt.setInt(2, statusPrice);
-					preparedStmt.setString(3, statusName);
-					preparedStmt.setString(4, statusURL);
-					preparedStmt.setString(5, fmtEmail);
-					
-					preparedStmt.executeUpdate();
-					
-					String selectStmt = "SELECT ProductName FROM product WHERE ProductID=?;";
-					
-					preparedStmt = con.prepareStatement(selectStmt);
-					
-					preparedStmt.setInt(1, statusID);
-					
-					resultSet = preparedStmt.executeQuery();
-					
-					while(resultSet.next()) {
-						user.setStatus(resultSet.getString(1));
-						
-						userStatus = user.getStatus();
-					}
-					
-					String updateStmt = "UPDATE user SET Coins=?, Status=? WHERE Email_ID=?;";
-					
-					double updatedUserCoins = userCoins - statusPrice;
-					
-					preparedStmt = con.prepareStatement(updateStmt);
-					
-					preparedStmt.setDouble(1, updatedUserCoins);
-					preparedStmt.setString(2, userStatus);
-					preparedStmt.setString(3, fmtEmail);
-					
-					int result = preparedStmt.executeUpdate();
-					
-					if(result > 0) {
-						user.setStatus(userStatus);
-						System.out.println("User purchased " + userStatus + " status!");
-					}
+				String updateStmt = "UPDATE user SET Coins=?, Status=? WHERE Email_ID=?;";
+				
+				double updatedUserCoins = userCoins - statusPrice;
+				
+				preparedStmt = con.prepareStatement(updateStmt);
+				
+				preparedStmt.setDouble(1, updatedUserCoins);
+				preparedStmt.setString(2, userStatus);
+				preparedStmt.setString(3, fmtEmail);
+				
+				int result = preparedStmt.executeUpdate();
+				
+				if(result > 0) {
+					user.setStatus(userStatus);
+					System.out.println("User purchased " + userStatus + " status!");
 				} else {
 					System.out.println("User already has this status!");
 					return null;
