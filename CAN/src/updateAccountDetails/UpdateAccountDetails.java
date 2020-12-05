@@ -32,22 +32,9 @@ public class UpdateAccountDetails extends HttpServlet {
 		String newPassword = request.getParameter("newPassword");
 		String updateAvatar = request.getParameter("updateAvatar");
 		
-		if(firstName.equals("") && lastName.equals("") && bio.equals("") && phoneNumber.equals("") && newPassword.equals("")) {
-			request.setAttribute("emptyInputMessage", "Please enter your new account details or go back to the profile page!");
-			request.getRequestDispatcher("EditAccountDetails.jsp").forward(request, response);
-		} else if(firstName.equals("") || lastName.equals("") || phoneNumber.equals("") || newPassword.equals("")) {	
-			request.setAttribute("emptyInputMessage", "Please enter your new account details or go back to the profile page!");
-			request.getRequestDispatcher("EditAccountDetails.jsp").forward(request, response);
-		} else if(bio.equals("")) {
-			user = userDAO.updateAccountDetails(email, firstName, lastName, phoneNumber, bio, newPassword, updateAvatar);	
-			
-			request.setAttribute("settingsUpdatedMessage", "Your account settings were updated!");
-			request.getRequestDispatcher("Profile_Page.jsp").forward(request, response);
-		} else {
-			user = userDAO.updateAccountDetails(email, firstName, lastName, phoneNumber, bio, newPassword, updateAvatar);	
-			
-			request.setAttribute("settingsUpdatedMessage", "Your account settings were updated!");
-			request.getRequestDispatcher("Profile_Page.jsp").forward(request, response);
-		}		
+		user = userDAO.updateAccountDetails(email, firstName, lastName, phoneNumber, bio, newPassword, updateAvatar);	
+		
+		request.setAttribute("settingsUpdatedMessage", "Your account settings were updated!");
+		request.getRequestDispatcher("Profile_Page.jsp").forward(request, response);
 	}
 }
