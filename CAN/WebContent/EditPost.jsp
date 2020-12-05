@@ -51,10 +51,11 @@
 			        <h3>${emptyInputMessage}</h3>
 			        
 		    		<h1>Edit post</h1>
-		    		<p><%
-						String postID = request.getParameter("edit");
+		    		<p>
+		    			<%
+							String postID = request.getParameter("edit");
 						%>
-						</p>
+					</p>
 		    		<form action="ManagePost" method="post">
 		    		    <div class="form-group">
 		    		        <label for="title">Title <span class="require">*</span></label>
