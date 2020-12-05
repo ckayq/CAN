@@ -3,9 +3,12 @@
 <%@ page import="java.util.List"%>
 <%@ page import="user.User" %>
 <%@ page import="post.Post" %>
+<%@ page import="avatar.Avatar" %>
 <%@ page import="post.PostDAOImpl" %>
 <%@ page import="like.LikeDAO" %>
 <%@ page import="like.LikeDAOImpl" %>
+<%@ page import="avatar.AvatarDAO" %>
+<%@ page import="avatar.AvatarDAOImpl" %>
 <%@ page import="dbConnection.ConnectionProvider" %>
     
 <%
@@ -61,16 +64,18 @@
 				PostDAOImpl postDAO = new PostDAOImpl(ConnectionProvider.getConnection());
 						
 				LikeDAO likeDAO = new LikeDAOImpl();
+						
+				AvatarDAO avatarDAO = new AvatarDAOImpl();
 				
 				List<Post> postList = postDAO.getAllPosts();
-				
+
 				for(Post post : postList) 
 				{ %>
 					
 					<div class="holder">
 					    <div class="post">
 					    	<div class="post-head">
-					    		<img src="images/beaver.jpg" alt="">
+					    		<img src="<% out.println(avatarDAO.getAuthorAvatar(post.getPostAuthorEmail())); %>" alt="">
 					    		<i class="far fa-user" > <% out.println(post.getPostAuthorEmail()); %> </i>
 					       	    <i class="far calendar"> <% out.println(post.getPostCreationDate()); %> </i>
 					    	</div>

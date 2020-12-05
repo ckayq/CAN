@@ -1,3 +1,4 @@
+
 package avatar;
 
 import java.sql.Connection;
@@ -9,7 +10,7 @@ import java.util.List;
 
 import dbConnection.ConnectionProvider;
 
-public class AvatarDAOImpl {
+public class AvatarDAOImpl implements AvatarDAO{
 
 	static Connection con;
 	static PreparedStatement preparedStmt;
@@ -52,6 +53,30 @@ public class AvatarDAOImpl {
 		return AvatarList;
 	}
 
-    
-    
+	@Override
+	public String getAuthorAvatar(String email) {
+		String avatar = "";
+		
+		try {
+		con = ConnectionProvider.getConnection();
+		
+		String getAvatarStmt = "SELECT avatarUsing FROM user WHERE Email_ID=?;";
+		
+		preparedStmt = con.prepareStatement(getAvatarStmt);
+		
+		preparedStmt.setString(1, email);
+		
+		ResultSet resultSet = preparedStmt.executeQuery();
+		
+		while(resultSet.next()) {
+			avatar = resultSet.getString(1);
+		}
+		
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		System.out.print(avatar + " " + email);
+		
+		return avatar;
+	} 
 }
