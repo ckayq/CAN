@@ -394,6 +394,8 @@ public class UserDAOImpl implements UserDAO {
 					System.out.println("User already has this status!");
 					return null;
 				}
+			} else {
+				return null;
 			}
 			
 			con.close();
