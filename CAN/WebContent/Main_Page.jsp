@@ -76,7 +76,13 @@
 					    <div class="post">
 					    	<div class="post-head">
 					    		<img src="<% out.println(avatarDAO.getAuthorAvatar(post.getPostAuthorEmail())); %>" alt="">
-					    		<i class="far fa-user" > <% out.println(post.getPostAuthorEmail()); %> </i>
+					    		<form action="PostAuthorProfile.jsp" method="post">
+					    			<i class="far fa-user" > 
+					    				<a href="PostAuthorProfile.jsp"> <% out.println(post.getPostAuthorEmail()); %>
+					    					<button class="button" name="postAuthorEmail" type="button" value="<% out.println(post.getPostAuthorEmail()); %>"></button>
+					    				</a>
+					    			</i>
+					    		</form>
 					       	    <i class="far calendar"> <% out.println(post.getPostCreationDate()); %> </i>
 					    	</div>
 					    
@@ -103,12 +109,9 @@
 					      	<input type="hidden" class="form-control" name="userWhoLiked" value="<% String email = userSession.getEmail();
 																									out.println(email); %>">
 					      </form>
-					      
 						</div>
-					</div>		
-					
-					<% }
-				%>
+					</div>			
+				<% }%>
 			</div>
 		</div>			
 	</body>
