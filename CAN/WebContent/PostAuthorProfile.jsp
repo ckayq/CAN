@@ -20,9 +20,6 @@
 	
 	User user = new User();
 	
-	String postAuthorEmail = request.getParameter("postAuthorEmail");
-	
-	System.out.println(postAuthorEmail);
 %>
     
 <!DOCTYPE html>
@@ -55,6 +52,10 @@
 			</nav>
 		</div>
 		<div>
+				    	<%
+							String postAuthorEmail = request.getParameter("postAuthorEmail");
+						%>
+						
 			<div class="profile-header">
 				<div class="profile-img">
 					<img src="<% out.println(userDAO.getAvatar(postAuthorEmail)); %>" width="200">
@@ -129,23 +130,23 @@
 										        
 									      	</div>
 									      	<div class="likes_number">
-			      					      	<p class="likes_info" style="color:black; font-family:'Times New Roman', Times, serif">
-										      	Likes: <% int likes = likeDAO.countLikesOnPost(post.getPostID(), post.getPostAuthorEmail());
-										      				out.println(likes);
-										      			%> 
-									      	</p>
-									      	</div>
 		      								<form action="LikePost" method="post">
 										      	<button type="submit" class="btn btn-outline-primary btn-sm float-right" value="Like Post">
-							    		            <a class="btn btn-outline-primary btn-sm float-right">	
 											      		<i class="fa fa-thumbs-o-up"></i> 
-										      		</a>
 							    		        </button>
 										      	<input type="hidden" class="form-control" name="postID" value="<% out.print(post.getPostID()); %>"/>
 										      	<input type="hidden" class="form-control" name="postAuthorEmail" value="<% out.println(post.getPostAuthorEmail()); %>"/>
 										      	<input type="hidden" class="form-control" name="userWhoLiked" value="<% String email = userSession.getEmail();
 																														out.println(email); %>">
 									      </form>	
+									      </div>
+									      	<div class="likes_number">
+			      					      	<p class="likes_info" style="color:black; font-family:'Times New Roman', Times, serif">
+										      	Likes: <% int likes = likeDAO.countLikesOnPost(post.getPostID(), post.getPostAuthorEmail());
+										      				out.println(likes);
+										      			%> 
+									      	</p>
+									      	</div>
 										</div>
 									</div>
 								<% }

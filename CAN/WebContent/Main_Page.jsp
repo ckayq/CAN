@@ -75,15 +75,16 @@
 					<div class="holder">
 					    <div class="post">
 					    	<div class="post-head">
-					    		<img src="<% out.println(avatarDAO.getAuthorAvatar(post.getPostAuthorEmail())); %>" alt="">
+					    		<img src="<% out.println(avatarDAO.getAuthorAvatar(post.getPostAuthorEmail())); %>" alt="images/default.jpg">
+					       	    <i class="far calendar"> <% out.println(post.getPostCreationDate()); %> </i>
+					       	    
 					    		<form action="PostAuthorProfile.jsp" method="post">
 					    			<i class="far fa-user" > 
-					    				<a href="PostAuthorProfile.jsp"> <% out.println(post.getPostAuthorEmail()); %>
-					    					<button class="button" name="postAuthorEmail" type="button" value="<% out.println(post.getPostAuthorEmail()); %>"></button>
-					    				</a>
+					    				<% out.print(post.getPostAuthorEmail());%>
+					    					<button class="button" name="postAuthorEmail" value="<% out.print(post.getPostAuthorEmail()); %>">See profile</button>
 					    			</i>
 					    		</form>
-					       	    <i class="far calendar"> <% out.println(post.getPostCreationDate()); %> </i>
+					    		
 					    	</div>
 					    
 					    
@@ -100,9 +101,7 @@
 					      </p>
 					      <form action="LikePost" method="post">
 					      	<button type="submit" class="btn btn-outline-primary btn-sm float-right" value="Like Post">
-		    		            <a class="btn btn-outline-primary btn-sm float-right">	
 						      		<i class="fa fa-thumbs-o-up"></i> 
-					      		</a>
 		    		        </button>
 					      	<input type="hidden" class="form-control" name="postID" value="<% out.print(post.getPostID()); %>"/>
 					      	<input type="hidden" class="form-control" name="postAuthorEmail" value="<% out.println(post.getPostAuthorEmail()); %>"/>
