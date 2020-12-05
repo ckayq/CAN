@@ -147,7 +147,7 @@
 										        
 									      	</div>
 									      	<div class="likes_number" style="float:left">
-			      					      	<p class="likes_info" style="color:white; font-family:'Times New Roman', Times, serif">
+			      					      	<p class="likes_info" style="color:black; font-family:'Times New Roman', Times, serif">
 										      	Likes: <% int likes = likeDAO.countLikesOnPost(post.getPostID(), post.getPostAuthorEmail());
 										      				out.println(likes);
 										      			%> 
