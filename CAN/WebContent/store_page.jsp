@@ -95,6 +95,7 @@
 												<form action="Buy" method="post">
 													<input type="hidden" name="avatarID" value="<% out.println(image.getImageID()); %>">
 													<input type="hidden" name="avatarPrice" value="<% out.println(image.getUnitPrice()); %>">
+													<input type="hidden" name="avatarName" value="<% out.println(image.getProductName()); %>">
 													<input type="hidden" name="avatarURL" value="<% out.println(image.getImageURL()); %>">
 													<input type="hidden" name="email" value="
 																							<% String email = userSession.getEmail();
@@ -108,7 +109,7 @@
 										</div>
 									</div>
 									<% } %>
-						<% } %>	
+							<% } %>	
 								</div>
 							</div>
 						</div>
@@ -152,6 +153,7 @@
 														<form action="Buy" method="post">
 															<input type="hidden" name="statusID" value="<% out.println(image.getImageID()); %>">
 															<input type="hidden" name="statusPrice" value="<% out.println(image.getUnitPrice()); %>">
+															<input type="hidden" name="statusName" value="<% out.println(image.getProductName()); %>">
 															<input type="hidden" name="statusURL" value="<% out.println(image.getImageURL()); %>">
 															<input type="hidden" name="email" value="
 																									<% String email = userSession.getEmail();

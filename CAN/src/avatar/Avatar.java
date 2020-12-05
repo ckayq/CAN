@@ -4,25 +4,40 @@ import java.sql.*;
 
 public class Avatar {
 	private String avatar;
+	private String avatarName;
+	private String avatarImageURL;
 	
 	
 	public Avatar() {
 		super();
 	}
 	
-	public Avatar(String imageURL) {
+	public Avatar(String avatarName, String avatarImageURL) {
 		super();
 		
-		this.avatar = imageURL;
+		this.avatarName = avatarName;
+		this.avatarImageURL = avatarImageURL;
 	}
 
-	public String getAvatar() {
-		return avatar;
+	public Avatar(String avatarName) {
+		super();
+		
+		this.avatarName = avatarName;
 	}
 
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
+	public String getAvatarName() {
+		return avatarName;
 	}
-	
 
+	public void setAvatarName(String avatarName) {
+		this.avatarName = avatarName;
+	}
+
+	public String getAvatarImageURL() {
+		return avatarImageURL;
+	}
+
+	public void setAvatarImageURL(String avatarImageURL) {
+		this.avatarImageURL = avatarImageURL;
+	}
 }

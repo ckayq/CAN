@@ -298,7 +298,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
-	public User userBuysStatus(String email, int statusID, int statusPrice, String statusURL, double userCoins) {
+	public User userBuysStatus(String email, int statusID, int statusPrice, String statusName, String statusURL, double userCoins) {
 		User user = new User();
 		
 		try {
@@ -337,52 +337,54 @@ public class UserDAOImpl implements UserDAO {
 					
 					checkUserStatus = user.getProductID();
 				}
+				
 				if(statusID > checkUserStatus) {
-				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ImageURL, Email_ID) VALUES(?, ?, ?, ?);";
-				
-				preparedStmt = con.prepareStatement(insertStmt);
-				
-				preparedStmt.setInt(1, statusID);
-				preparedStmt.setInt(2, statusPrice);
-				preparedStmt.setString(3, statusURL);
-				preparedStmt.setString(4, fmtEmail);
-				
-				preparedStmt.executeUpdate();
-				
-				String selectStmt = "SELECT ProductName FROM product WHERE ProductID=?;";
-				
-				preparedStmt = con.prepareStatement(selectStmt);
-				
-				preparedStmt.setInt(1, statusID);
-				
-				resultSet = preparedStmt.executeQuery();
-				
-				while(resultSet.next()) {
-					user.setStatus(resultSet.getString(1));
+					String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ProductName, ImageURL, Email_ID) VALUES(?, ?, ?, ?, ?);";
 					
-					userStatus = user.getStatus();
+					preparedStmt = con.prepareStatement(insertStmt);
+					
+					preparedStmt.setInt(1, statusID);
+					preparedStmt.setInt(2, statusPrice);
+					preparedStmt.setString(3, statusName);
+					preparedStmt.setString(4, statusURL);
+					preparedStmt.setString(5, fmtEmail);
+					
+					preparedStmt.executeUpdate();
+					
+					String selectStmt = "SELECT ProductName FROM product WHERE ProductID=?;";
+					
+					preparedStmt = con.prepareStatement(selectStmt);
+					
+					preparedStmt.setInt(1, statusID);
+					
+					resultSet = preparedStmt.executeQuery();
+					
+					while(resultSet.next()) {
+						user.setStatus(resultSet.getString(1));
+						
+						userStatus = user.getStatus();
+					}
+					
+					String updateStmt = "UPDATE user SET Coins=?, Status=? WHERE Email_ID=?;";
+					
+					double updatedUserCoins = userCoins - statusPrice;
+					
+					preparedStmt = con.prepareStatement(updateStmt);
+					
+					preparedStmt.setDouble(1, updatedUserCoins);
+					preparedStmt.setString(2, userStatus);
+					preparedStmt.setString(3, fmtEmail);
+					
+					int result = preparedStmt.executeUpdate();
+					
+					if(result > 0) {
+						user.setStatus(userStatus);
+						System.out.println("User purchased " + userStatus + " status!");
+					}
+				} else {
+					System.out.println("User already has this status!");
+					return null;
 				}
-				
-				String updateStmt = "UPDATE user SET Coins=?, Status=? WHERE Email_ID=?;";
-				
-				double updatedUserCoins = userCoins - statusPrice;
-				
-				preparedStmt = con.prepareStatement(updateStmt);
-				
-				preparedStmt.setDouble(1, updatedUserCoins);
-				preparedStmt.setString(2, userStatus);
-				preparedStmt.setString(3, fmtEmail);
-				
-				int result = preparedStmt.executeUpdate();
-				
-				if(result > 0) {
-					user.setStatus(userStatus);
-					System.out.println("User purchased " + userStatus + " status!");
-				}
-			} else {
-				System.out.println("User already has this status!");
-				return null;
-			}
 			}
 			
 			con.close();
@@ -394,7 +396,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User userBuysAvatar(String email, int avatarID, int avatarPrice, String avatarURL, double userCoins) {
+	public User userBuysAvatar(String email, int avatarID, int avatarPrice, String avatarName, String avatarURL, double userCoins) {
 		User user = new User();
 		
 		try {
@@ -418,14 +420,15 @@ public class UserDAOImpl implements UserDAO {
 			} 
 			
 			if(count == 0) {
-				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ImageURL, Email_ID) VALUES(?, ?, ?, ?);";
+				String insertStmt = "INSERT INTO user_buys_product(ProductID, UnitPrice, ProductName, ImageURL, Email_ID) VALUES(?, ?, ?, ?, ?);";
 				
 				preparedStmt = con.prepareStatement(insertStmt);
 				
 				preparedStmt.setInt(1, avatarID);
 				preparedStmt.setInt(2, avatarPrice);
-				preparedStmt.setString(3, avatarURL);
-				preparedStmt.setString(4, fmtEmail);
+				preparedStmt.setString(3, avatarName);
+				preparedStmt.setString(4, avatarURL);
+				preparedStmt.setString(5, fmtEmail);
 				
 				preparedStmt.executeUpdate();
 				

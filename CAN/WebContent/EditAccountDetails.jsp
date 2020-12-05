@@ -86,19 +86,19 @@
 					        <input name="newPassword" class="form-control" placeholder="Enter new password" type="password" maxlength="20"> 
 					    </div>  
 					    <div class="form-group">
-   		    		        <label for="ChangeAvatar">Change Avatar</label>
-		    		          <select name="ChangeAvatar" id="cars">
+   		    		        <label for="updateAvatar">Change Avatar</label>
+		    		          <select name="updateAvatar">
 							
-   						<%
-							AvatarDAOImpl avatarDAO = new AvatarDAOImpl();
-   							
-   		    		        List<Avatar> avatarList = avatarDAO.getAllAvatar(user.getEmail());
-   									
-   							for(Avatar avatar : avatarList) 
-   							{ %>
-							    <option value="<%out.println(avatar.getAvatar());%>"> <% out.println(avatar.getAvatar());%> </option>
-								<% }
-							%>
+		   						<%
+									AvatarDAOImpl avatarDAO = new AvatarDAOImpl();
+		   							
+		   		    		        List<Avatar> avatarList = avatarDAO.getAllAvatars(user.getEmail());
+		   									
+		   							for(Avatar avatar : avatarList) 
+		   							{ %>
+									    <option value="<%out.println(avatar.getAvatarImageURL());%>"> <% out.println(avatar.getAvatarName());%> </option>
+									<% }
+								%>
 							  </select>
 		    		    </div>                     
 					    <div class="form-group">
