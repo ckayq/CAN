@@ -513,17 +513,90 @@ public class UserDAOImpl implements UserDAO {
 			
 			String fmtEmail = email.trim();
 			
-			String updateStmt = "UPDATE user SET PhoneNumber=?, FirstName=?, LastName=?, Bio=?, Password=?, avatarUsing=? WHERE Email_ID=?;";
 			
-			preparedStmt = con.prepareStatement(updateStmt);
+			if(firstName.trim().equals("")) {
+				String updateStmt = "UPDATE user SET FirstName = (SELECT FirstName FROM user WHERE Email_ID=?) WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt);
+				preparedStmt.setString(1, fmtEmail);
+			}
+			else {
+				String updateStmt = "UPDATE user SET FirstName = ?"
+						+ " WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt);
+				preparedStmt.setString(1, firstName);
+				preparedStmt.setString(2, fmtEmail);
+				preparedStmt.executeUpdate();
+			}
 			
-			preparedStmt.setString(1, phoneNumber);
-			preparedStmt.setString(2, firstName);
-			preparedStmt.setString(3, lastName);
-			preparedStmt.setString(4, bio);
-			preparedStmt.setString(5, newPassword);
-			preparedStmt.setString(6, imageURL);
-			preparedStmt.setString(7, fmtEmail);
+			if(lastName.trim().equals("")) {
+				String updateStmt2 = "UPDATE user SET LastName = (SELECT LastName FROM user WHERE Email_ID=?) WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt2);
+				preparedStmt.setString(1, fmtEmail);
+			}
+			else {
+				String updateStmt2 = "UPDATE user SET LastName = ?"
+						+ " WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt2);
+				preparedStmt.setString(1, lastName);
+				preparedStmt.setString(2, fmtEmail);
+				preparedStmt.executeUpdate();
+			}
+			
+			if(phoneNumber.trim().equals("")) {
+				String updateStmt2 = "UPDATE user SET PhoneNumber = (SELECT PhoneNumber FROM user WHERE Email_ID=?) WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt2);
+				preparedStmt.setString(1, fmtEmail);
+			}
+			else {
+				String updateStmt2 = "UPDATE user SET PhoneNumber = ?"
+						+ " WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt2);
+				preparedStmt.setString(1, phoneNumber);
+				preparedStmt.setString(2, fmtEmail);
+				preparedStmt.executeUpdate();
+			}
+			
+			if(bio.trim().equals("")) {
+				String updateStmt2 = "UPDATE user SET Bio = (SELECT Bio FROM user WHERE Email_ID=?) WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt2);
+				preparedStmt.setString(1, fmtEmail);
+			}
+			else {
+				String updateStmt2 = "UPDATE user SET Bio = ?"
+						+ " WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt2);
+				preparedStmt.setString(1, bio);
+				preparedStmt.setString(2, fmtEmail);
+				preparedStmt.executeUpdate();
+			}
+			
+			if(newPassword.trim().equals("")) {
+				String updateStmt2 = "UPDATE user SET Password = (SELECT Password FROM user WHERE Email_ID=?) WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt2);
+				preparedStmt.setString(1, fmtEmail);
+			}
+			else {
+				String updateStmt2 = "UPDATE user SET Password = ?"
+						+ " WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt2);
+				preparedStmt.setString(1, newPassword);
+				preparedStmt.setString(2, fmtEmail);
+				preparedStmt.executeUpdate();
+			}
+			
+			if(imageURL.trim().equals("")) {
+				String updateStmt2 = "UPDATE user SET avatarUsing = (SELECT avatarUsing FROM user WHERE Email_ID=?) WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt2);
+				preparedStmt.setString(1, fmtEmail);
+			}
+			else {
+				String updateStmt2 = "UPDATE user SET avatarUsing = ?"
+						+ " WHERE Email_ID=?;";
+				preparedStmt = con.prepareStatement(updateStmt2);
+				preparedStmt.setString(1, imageURL);
+				preparedStmt.setString(2, fmtEmail);
+				preparedStmt.executeUpdate();
+			}
 			
 			int result = preparedStmt.executeUpdate();		
 			
