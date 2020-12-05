@@ -154,9 +154,7 @@
 									      	</div>
 										     
 									      	<form action="EditPost.jsp" method="post">
-			      								<a href="EditPost.jsp">
 									      			<button class="edit_post" name="edit" value="<%out.print(post.getPostID());%>">Edit</button>	
-												</a>
 											</form>
 											<form action="DeletePost" method="post">
 									      		<button class="delete_post" value="Delete">Delete</button>
