@@ -24,6 +24,8 @@ public class Buy extends HttpServlet {
 		String avatarID = request.getParameter("avatarID");
 		String statusPrice = request.getParameter("statusPrice"); 
 		String avatarPrice = request.getParameter("avatarPrice"); 
+		String statusName = request.getParameter("statusName"); 
+		String avatarName = request.getParameter("avatarName"); 
 		String statusURL = request.getParameter("statusURL"); 
 		String avatarURL = request.getParameter("avatarURL");
 		String userCoins = request.getParameter("userCoins"); 
@@ -35,31 +37,32 @@ public class Buy extends HttpServlet {
 		
 		if(request.getParameter("buyAvatar") != null) {
 			if(Double.parseDouble(userCoins) >= Integer.parseInt(avatarPrice.trim())) {
-				user = userDAO.userBuysAvatar(email.trim(), Integer.parseInt(avatarID.trim()), Integer.parseInt(avatarPrice.trim()), avatarURL.trim(), Double.parseDouble(userCoins.trim()));
-				System.out.println(user);
+				user = userDAO.userBuysAvatar(email.trim(), Integer.parseInt(avatarID.trim()), Integer.parseInt(avatarPrice.trim()), avatarName.trim(), avatarURL.trim(), Double.parseDouble(userCoins.trim()));
+
 				if(user != null) {
-				request.setAttribute("avatarBoughtMessage", "You have purchased the avatar!");
-				request.getRequestDispatcher("store_page.jsp").forward(request, response);
+					request.setAttribute("avatarBoughtMessage", "You have purchased the avatar!");
+					request.getRequestDispatcher("store_page.jsp").forward(request, response);
 				} else {
 					request.setAttribute("avatarBoughtMessage", "You already have this avatar!");
 					request.getRequestDispatcher("store_page.jsp").forward(request, response);
 				}
 			} else {
-				request.setAttribute("notEnoughCoinsMessage", "You do not have enough coins to buy this avatar!");
+				request.setAttribute("notEnoughCoinsAvatarMessage", "You do not have enough coins to buy this avatar!");
 				request.getRequestDispatcher("store_page.jsp").forward(request, response);
 			}
 		} else if (request.getParameter("buyStatus") != null) {
 			if(Double.parseDouble(userCoins) >= Integer.parseInt(statusPrice.trim())) {
-				user = userDAO.userBuysStatus(email.trim(), Integer.parseInt(statusID.trim()), Integer.parseInt(statusPrice.trim()), statusURL.trim(), Double.parseDouble(userCoins.trim()));
+				user = userDAO.userBuysStatus(email.trim(), Integer.parseInt(statusID.trim()), Integer.parseInt(statusPrice.trim()), statusName.trim(), statusURL.trim(), Double.parseDouble(userCoins.trim()));
+				
 				if(user != null) {
-				request.setAttribute("statusBoughtMessage", "You have purchased the status!");
-				request.getRequestDispatcher("store_page.jsp").forward(request, response);
+					request.setAttribute("statusBoughtMessage", "You have purchased the status!");
+					request.getRequestDispatcher("store_page.jsp").forward(request, response);
 				} else {
 					request.setAttribute("statusBoughtMessage", "You have already purchased this status or have higher status!");
 					request.getRequestDispatcher("store_page.jsp").forward(request, response);
 				}
 			} else {
-				request.setAttribute("notEnoughCoinsMessage", "You do not have enough coins to buy this status!");
+				request.setAttribute("notEnoughCoinsStatusMessage", "You do not have enough coins to buy this status!");
 				request.getRequestDispatcher("store_page.jsp").forward(request, response);
 			}
 		}

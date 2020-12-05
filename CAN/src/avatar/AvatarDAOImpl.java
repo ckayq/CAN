@@ -14,6 +14,7 @@ public class AvatarDAOImpl implements AvatarDAO{
 
 	static Connection con;
 	static PreparedStatement preparedStmt;
+	ResultSet resultSet;
 	
 	public AvatarDAOImpl() {}
 	
@@ -21,27 +22,33 @@ public class AvatarDAOImpl implements AvatarDAO{
         this.con = con;
     }
     
-	public List<Avatar> getAllAvatar(String email) {
+	public List<Avatar> getAllAvatars(String email) {
 		List<Avatar> AvatarList = new ArrayList<>();
 		
 		try {
 			con = ConnectionProvider.getConnection();
 			
-			String getStmt = "SELECT imageURL, ProductID FROM user_buys_product WHERE Email_ID=?;";
+			int productID = 0;
+			String avatarName = "";
+			String avatarImageURL = "";
+			
+			String getStmt = "SELECT ProductID, ProductName, ImageURL FROM user_buys_product WHERE Email_ID=?;";
 			
 			preparedStmt = con.prepareStatement(getStmt);
 			
 			preparedStmt.setString(1, email);
 			
-			ResultSet resultSet = preparedStmt.executeQuery();
+			resultSet = preparedStmt.executeQuery();
 			
 			while(resultSet.next()) {
-				String avatarSet = resultSet.getString("ImageURL");
-				int avatarID = resultSet.getInt("ProductID");
-				if(avatarID < 9) {
-				Avatar avatar = new Avatar(avatarSet);
+				productID = resultSet.getInt(1);
+				avatarName = resultSet.getString(2);
+				avatarImageURL = resultSet.getString(3);
+				
+				if(productID < 9) {
+					Avatar avatar = new Avatar(avatarName, avatarImageURL);
 
-				AvatarList.add(avatar);
+					AvatarList.add(avatar);
 				}
 			}
 			
@@ -79,4 +86,5 @@ public class AvatarDAOImpl implements AvatarDAO{
 		
 		return avatar;
 	} 
+
 }

@@ -30,7 +30,7 @@ public class UpdateAccountDetails extends HttpServlet {
 		String phoneNumber = request.getParameter("phoneNumber");
 		String bio = request.getParameter("bio");
 		String newPassword = request.getParameter("newPassword");
-		String updateAvatar = request.getParameter("ChangeAvatar");
+		String updateAvatar = request.getParameter("updateAvatar");
 		
 		if(firstName.equals("") && lastName.equals("") && bio.equals("") && phoneNumber.equals("") && newPassword.equals("")) {
 			request.setAttribute("emptyInputMessage", "Please enter your new account details or go back to the profile page!");
