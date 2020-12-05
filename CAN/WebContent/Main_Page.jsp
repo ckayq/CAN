@@ -82,7 +82,7 @@
 					    			<i class="far fa-user" > 
 					    				<% out.print(post.getPostAuthorEmail());%>
 					    			</i>
-					    			<button class="author_btn" name="postAuthorEmail" value="<% out.print(post.getPostAuthorEmail()); %>">Profile</button>
+					    			<button class="author_btn" name="postAuthorEmail" value="<% out.print(post.getPostAuthorEmail()); %>">See Profile</button>
 					    		</form>
 					    		
 					    	</div>
