@@ -102,8 +102,6 @@ public class PostDAOImpl implements PostDAO {
 				post.setPostBody(postBody);
 			}
 			
-			System.out.println(postTitle + "\n" + postBody);
-			
 			con.close();
 		} catch(Exception ex) {
 			ex.printStackTrace();

@@ -8,6 +8,8 @@
     if (user == null) {
         response.sendRedirect("LoginPage.jsp");
     }
+    
+	String postID = request.getParameter("edit");
 %>    
 
 <!DOCTYPE html>
@@ -51,12 +53,7 @@
 			        <h3>${emptyInputMessage}</h3>
 			        
 		    		<h1>Edit post</h1>
-		    		<p>
-		    			<%
-							String postID = request.getParameter("edit");
-						%>
-					</p>
-		    		<form action="ManagePost" method="post">
+		    		<form action="EditPost" method="post">
 		    		    <div class="form-group">
 		    		        <label for="title">Title <span class="require">*</span></label>
 		    		        <input type="text" class="form-control" name="postTitle" maxlength="25"/>

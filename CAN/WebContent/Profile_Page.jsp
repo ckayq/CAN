@@ -54,6 +54,7 @@
 			<h1>${settingsUpdatedMessage}</h1>
 			<h1>${postDeletedMessage}</h1>
 			<h1>${postNotDeletedMessage}</h1>
+			<h1>${postUpdatedMessage}</h1>
 			<div class="profile-header">
 				<div class="profile-img">
 					<img src="<% out.println(userDAO.getAvatar(userSession.getEmail())); %>" width="200">
