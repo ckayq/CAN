@@ -53,6 +53,8 @@
 		</div>
 		<div>
 			<h1>${settingsUpdatedMessage}</h1>
+			<h1>${postDeletedMessage}</h1>
+			<h1>${postNotDeletedMessage}</h1>
 			<div class="profile-header">
 				<div class="profile-img">
 					<img src="<% out.println(userDAO.getAvatar(userSession.getEmail())); %>" width="200">
@@ -156,6 +158,8 @@
 				      								<a href="EditPost.jsp">
 										      			<button class="edit_post" name="edit" value="<%out.print(post.getPostID());%>">Edit</button>	
 													</a>
+											</form>
+											<form action="DeletePost" method="post">
 										      		<button class="delete_post" value="Delete">Delete</button>
 										      		<input type="hidden" name="postID" value="<% out.println(post.getPostID()); %>">
 											</form>		

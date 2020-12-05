@@ -111,4 +111,29 @@ public class PostDAOImpl implements PostDAO {
 		
 		return post;
 	}
+	
+	public boolean deletePost(int postID) {
+		
+		boolean flag = false;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String deleteStmt = "DELETE FROM post WHERE PostID=?";
+			
+			preparedStmt = con.prepareStatement(deleteStmt);
+			
+			preparedStmt.setInt(1, postID);
+			
+			preparedStmt.executeUpdate();
+
+			flag = true;
+			
+			con.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		return flag;
+	}
 }
