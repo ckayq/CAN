@@ -146,18 +146,18 @@
 										        <p class="preview-text" > <% out.println(post.getPostBody()); %> </p>
 										        
 									      	</div>
-									      	<div class="likes_number">
-			      					      	<p class="likes_info" style="color:black; font-family:'Times New Roman', Times, serif">
+									      	<div class="likes_number" style="float:left">
+			      					      	<p class="likes_info" style="color:white; font-family:'Times New Roman', Times, serif">
 										      	Likes: <% int likes = likeDAO.countLikesOnPost(post.getPostID(), post.getPostAuthorEmail());
 										      				out.println(likes);
 										      			%> 
 									      	</p>
 									      	</div>
 										     
-									      	<form action="EditPost.jsp" method="post">
+									      	<form action="EditPost.jsp" method="post" style="float:left; margin-left:160px; margin-top:20px; padding-bottom:10px;">
 									      			<button class="edit_post" name="edit" value="<%out.print(post.getPostID());%>">Edit</button>	
 											</form>
-											<form action="DeletePost" method="post">
+											<form action="DeletePost" method="post" style="margin-top:20px; padding-bottom:10px;">
 									      		<button class="delete_post" value="Delete">Delete</button>
 									      		<input type="hidden" name="postID" value="<% out.println(post.getPostID()); %>">
 											</form>		

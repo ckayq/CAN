@@ -159,3 +159,13 @@ div.post-review{
 		width:100%;
 	}
 }
+
+.post-head button.author_btn {
+	background-color:black;
+	color:white;
+	border-radius:15px;
+	margin-top:18px;
+	padding:5px 5px;
+	margin-right:120px;
+	font-size:10px;
+}

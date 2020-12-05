@@ -81,8 +81,8 @@
 					    		<form action="PostAuthorProfile.jsp" method="post">
 					    			<i class="far fa-user" > 
 					    				<% out.print(post.getPostAuthorEmail());%>
-					    					<button class="button" name="postAuthorEmail" value="<% out.print(post.getPostAuthorEmail()); %>">See profile</button>
 					    			</i>
+					    			<button class="author_btn" name="postAuthorEmail" value="<% out.print(post.getPostAuthorEmail()); %>">Profile</button>
 					    		</form>
 					    		
 					    	</div>
